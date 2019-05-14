@@ -1,4 +1,6 @@
-# 2018-??-?? Release 2.?.?
+# 2019-05-14 Release 2.2.1
+
+* Add support for SLES
 
 # 2018-09-06 Release 2.1.0
 

@@ -1,6 +1,6 @@
 {
   "name": "ccin2p3-syslog_ng",
-  "version": "2.1.0",
+  "version": "2.2.1",
   "author": "ccin2p3",
   "summary": "A module for generating syslog-ng configuration files.",
   "license": "Apache-2.0",
