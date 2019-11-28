@@ -32,6 +32,7 @@ class syslog_ng::repo {
           release  => '',
           repos    => './',
           key      => {
+            ensure => 'refreshed',
             id     => 'F20F51628D04901AD01175013B92A8D27CFDAEDD',
             source => "${release_url}/Release.key",
           },
