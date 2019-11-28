@@ -17,10 +17,14 @@ class syslog_ng::repo {
         }
       }
       'Debian': {
-        $release_url = $facts['os']['name'] ? {
-          'Debian' => "http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_${major_release}.0",
-          'Ubuntu' => "http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_${major_release}",
+        $release_url_suffix = $facts['os']['name'] ? {
+          'Debian' => $major_release ? {
+            '10' => "Debian_${major_release}",
+            default => "Debian_${major_release}.0",
+          },
+          'Ubuntu' => "xUbuntu_${major_release}",
         }
+        $release_url = "http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/${release_url_suffix}"
 
         apt::source { 'syslog-ng-obs':
           comment  => 'syslog-ng unofficial repository, https://www.syslog-ng.com/community/b/blog/posts/installing-the-latest-syslog-ng-on-ubuntu-and-other-deb-distributions',
