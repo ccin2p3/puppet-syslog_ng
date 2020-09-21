@@ -15,7 +15,7 @@ syslog_ng::config { 'block foo':
 }
 
 $_coloss_analyzers = ['a','b','c']
-$_coloss_analyzer_destinations = $_coloss_analyzers.map |$host| {{'coloss' => "server($host)"}}
+$_coloss_analyzer_destinations = $_coloss_analyzers.map |$host| {{'coloss' => "server(${host})"}}
 puts($_coloss_analyzer_destinations)
 ::syslog_ng::log { 'd_check_elasticsearch_roundtrip':
   params => flatten(

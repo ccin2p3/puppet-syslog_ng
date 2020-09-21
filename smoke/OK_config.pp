@@ -17,5 +17,5 @@ $long_comment = '# Comment,
 # '
 
 syslog_ng::config {'long_comment':
-    content => $long_comment 
+    content => $long_comment
 }

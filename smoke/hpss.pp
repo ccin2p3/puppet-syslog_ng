@@ -7,14 +7,8 @@ class  { 'syslog_ng':
   manage_init_defaults        => false,
 }
 
-syslog_ng::destination { 'd_udp':
-    params => {
-        'type'    => 'udp',
-        'options' => [
-            "'127.0.0.1'",
-            {'port' => '1999'},
-            {'localport' => '999'}
-        ]
-    }
+syslog_ng::rewrite { 'r_truncate':
+  params => [
+    { 'set' => ['"$(substr ${MSG} 0 14400))"']   }
+  ]
 }
-

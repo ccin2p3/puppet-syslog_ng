@@ -9,7 +9,7 @@ class  { 'syslog_ng':
 
 syslog_ng::parser {'p_hostname_segmentation':
     params => {
-        'type' => 'csv-parser',
+        'type'    => 'csv-parser',
         'options' => [
             {'columns' => [
                 '"HOSTNAME.NAME"',
@@ -17,7 +17,9 @@ syslog_ng::parser {'p_hostname_segmentation':
             ]},
             {'delimiters' => '"-"'},
             {'flags' => 'escape-none'},
+#lint:ignore:single_quote_string_with_variables
             {'template' => '"${HOST}"'}
+#lint:endignore
         ]
     }
 }

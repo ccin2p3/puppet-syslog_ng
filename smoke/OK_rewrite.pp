@@ -9,7 +9,7 @@ class  { 'syslog_ng':
 
 syslog_ng::rewrite{'r_rewrite_subst':
     params => {
-        'type' => 'subst',
+        'type'    => 'subst',
         'options' => [
             '"IP"',
             '"IP-Address"',

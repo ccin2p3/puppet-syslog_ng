@@ -9,7 +9,7 @@ class  { 'syslog_ng':
 
 syslog_ng::source { 's_gsoc':
     params => {
-        'type' => 'tcp',
+        'type'    => 'tcp',
         'options' => [
           { 'ip' => "'127.0.0.1'" },
           { 'port' => 1999 }
@@ -19,20 +19,20 @@ syslog_ng::source { 's_gsoc':
 
 syslog_ng::source {'s_external':
     params => [
-        { 'type' => 'udp',
+        { 'type'    => 'udp',
           'options' => [
             {'ip' => ["'127.0.0.1'"]},
             {'port' => [514]}
             ]
         },
-        { 'type' => 'tcp',
+        { 'type'    => 'tcp',
           'options' => [
             {'ip' => ["'127.0.0.1'"]},
             {'port' => [514]}
             ]
         },
         {
-          'type' => 'syslog',
+          'type'    => 'syslog',
           'options' => [
             {'flags' => ['no-multi-line', 'no-parse']},
             {'ip' => ["'127.0.0.1'"]},
@@ -53,5 +53,5 @@ syslog_ng::source {'s_external':
             ]
         }
     ]
-} 
+}
 

@@ -44,6 +44,7 @@ class syslog_ng::repo {
 
         Class['apt::update'] -> Package <| tag == 'syslog_ng' |>
       }
+      default: {}
     }
   }
 }

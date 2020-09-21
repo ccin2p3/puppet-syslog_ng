@@ -7,7 +7,7 @@ class  { 'syslog_ng':
   manage_init_defaults        => false,
 }
 
-syslog_ng::options { "global_options":
+syslog_ng::options { 'global_options':
     options => {
         'bad_hostname' => "'no'",
         'time_reopen'  => 10
