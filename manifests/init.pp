@@ -51,8 +51,6 @@ class syslog_ng (
     syntax_check_before_reloads => $syntax_check_before_reloads
   }
 
-  notice("config_file: ${config_file}")
-
   concat::fragment {'syslog_ng header':
     target  => $config_file,
     content => $config_file_header,

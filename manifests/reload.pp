@@ -13,8 +13,6 @@ class syslog_ng::reload (
 
   $syslog_ng_syntax_check_cmd = "${syslog_ng_full_path} --syntax-only --cfgfile %"
 
-  notice("syslog_ng::reload: syntax_check_before_reloads=${syntax_check_before_reloads}")
-
   exec { 'syslog_ng_reload':
     command     => "${syslog_ng_ctl_full_path} reload",
     path        => $exec_path,
