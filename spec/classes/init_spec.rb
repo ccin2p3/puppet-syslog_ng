@@ -4,7 +4,7 @@ describe 'syslog_ng' do
 
   let(:facts)  {{ concat_basedir: '/dne',
                   osfamily: 'Debian',
-                  os: { family: 'Debian', name: 'Ubuntu', release: { full: '14.04', major: '14.04' } },
+                  os: { family: 'Debian', name: 'Ubuntu', release: { full: '14.04', major: '14.04' }, distro: { codename: 'trusty' } },
                   operatingsystem: 'Ubuntu'
   }}
 
