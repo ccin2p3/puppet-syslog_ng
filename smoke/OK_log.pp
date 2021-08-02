@@ -1,4 +1,4 @@
-class  { 'syslog_ng':
+class { 'syslog_ng':
   config_file                 => '/tmp/syslog-ng.conf',
   manage_package              => false,
   syntax_check_before_reloads => false,
@@ -7,9 +7,9 @@ class  { 'syslog_ng':
   manage_init_defaults        => false,
 }
 
-syslog_ng::log {'l':
-    params => [
-        {'source' => 's_external'},
-        {'destination' => 'd_udp'}
-    ]
+syslog_ng::log { 'l':
+  params => [
+    { 'source' => 's_external' },
+    { 'destination' => 'd_udp' },
+  ],
 }

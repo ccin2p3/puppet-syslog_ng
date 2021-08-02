@@ -1,4 +1,4 @@
-class  { 'syslog_ng':
+class { 'syslog_ng':
   config_file                 => '/tmp/syslog-ng.conf',
   manage_package              => false,
   syntax_check_before_reloads => false,
@@ -8,8 +8,8 @@ class  { 'syslog_ng':
 }
 
 syslog_ng::options { 'global_options':
-    options => {
-        'bad_hostname' => "'no'",
-        'time_reopen'  => 10
-    }
+  options => {
+    'bad_hostname' => "'no'",
+    'time_reopen'  => 10,
+  },
 }
