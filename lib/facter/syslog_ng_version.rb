@@ -10,4 +10,3 @@ Facter.add(:syslog_ng_version) do
     end
   end
 end
-
