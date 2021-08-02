@@ -1,3 +1,4 @@
+# rubocop:disable Style/AccessorMethodName, Style/ClassVars, Style/PredicateName
 module Statement
   # source s_name { .. };
   class Stment
@@ -68,9 +69,9 @@ module Statement
       tail = Statement.line(')')
 
       if @values.length >= 1
-        return header + built_values.join(",\n") + "\n" + tail
+        header + built_values.join(",\n") + "\n" + tail
       else
-        return header + tail
+        header + tail
       end
     end
   end
@@ -219,17 +220,17 @@ module Statement
       @@current_parameter.add_value(@@current_parameter_value)
     # flags => ['something', 'no-parse']
     elsif value.is_a? Array
-      value.each do |item|
+      value.each do |value_item|
         # 'no-parse'
-        if is_simple_type?(item)
-          @@current_parameter_value = TypedParameterSimpleValue.new(item)
+        if is_simple_type?(value_item)
+          @@current_parameter_value = TypedParameterSimpleValue.new(value_item)
           @@current_parameter.add_value(@@current_parameter_value)
           # { ... }
-        elsif item.is_a? Hash
+        elsif value_item.is_a? Hash
           @@current_parameter_value = TypedParameterTypedValue.new
-          parse_typed_parameter_typed_value(item)
+          parse_typed_parameter_typed_value(value_item)
           @@current_parameter.add_value(@@current_parameter_value)
-          end
+        end
       end
     end
   end
@@ -241,7 +242,7 @@ module Statement
       elsif item.is_a? Hash
         @@current_parameter = TypedParameter.new
         parse_typed_parameter(item)
-        end
+      end
 
       @@current_option.add_parameter(@@current_parameter)
     end
@@ -251,15 +252,11 @@ module Statement
     if option.key?('type')
       type = option['type']
       params = option['options']
-      @@current_option.set_type(type)
-
-      create_and_add_parameters(params)
     else
       type, params = expand_one_key_hash(option)
-      @@current_option.set_type(type)
-
-      create_and_add_parameters(params)
     end
+    @@current_option.set_type(type)
+    create_and_add_parameters(params)
   end
 
   def self.create_and_add_option(item)
