@@ -1,11 +1,11 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Facter::Util::Fact do
-  before {
+  before do
     Facter.clear
-  }
+  end
 
-  describe "syslog_ng" do
+  describe 'syslog_ng' do
     context 'fact' do
       output = <<-EOS
 syslog-ng 3.7.1
@@ -35,18 +35,18 @@ Enable-Linux-Caps: off
         'Enable-Linux-Caps' => 'off',
       }
       expected_syslog_ng_version = '3.7.1'
-      it "string" do
-        Facter::Util::Resolution.expects(:which).with("syslog-ng").returns("/usr/sbin/syslog-ng")
-        Facter::Util::Resolution.expects(:exec).with("syslog-ng --version").returns(output)
+      it 'string' do
+        Facter::Util::Resolution.expects(:which).with('syslog-ng').returns('/usr/sbin/syslog-ng')
+        Facter::Util::Resolution.expects(:exec).with('syslog-ng --version').returns(output)
         expect(Facter.value(:syslog_ng_version)).to eq(expected_syslog_ng_version)
       end
-      it "structured" do
-        Facter::Util::Resolution.expects(:which).with("syslog-ng").returns("/usr/sbin/syslog-ng")
-        Facter::Util::Resolution.expects(:exec).with("syslog-ng --version").returns(output)
+      it 'structured' do
+        Facter::Util::Resolution.expects(:which).with('syslog-ng').returns('/usr/sbin/syslog-ng')
+        Facter::Util::Resolution.expects(:exec).with('syslog-ng --version').returns(output)
         syslog_ng = Facter.value(:syslog_ng)
         expect(syslog_ng.keys).to eq(expected_syslog_ng.keys)
         syslog_ng.keys.each do |k|
-          expect(syslog_ng[k]).to eq(expected_syslog_ng[k]) 
+          expect(syslog_ng[k]).to eq(expected_syslog_ng[k])
         end
       end
     end

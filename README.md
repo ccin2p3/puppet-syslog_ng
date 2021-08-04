@@ -564,7 +564,7 @@ ihrweinsyslogng_ubuntu1204ruby187_1   rake spec   Up
 ihrweinsyslogng_ubuntu1404ruby193_1   rake spec   Up
 ```
 Now, you can check the progress with `make ps`. If they are not
-runnnig, you can see the exit codes. 0 mean OK. 
+runnnig, you can see the exit codes. 0 mean OK.
 
 
 ### Other information
