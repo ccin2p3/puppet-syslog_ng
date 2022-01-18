@@ -37,20 +37,26 @@ describe Facter::Util::Fact do
         'Enable-Linux-Caps' => 'off',
       }
       expected_syslog_ng_version = '3.7.1'
+
+      before do
+        allow(Facter::Util::Resolution).to receive(:which).with('syslog-ng').and_return('/usr/sbin/syslog-ng')
+        allow(Facter::Util::Resolution).to receive(:exec).with('syslog-ng --version').and_return(output)
+      end
+
       it 'string' do
-        Facter::Util::Resolution.expects(:which).with('syslog-ng').returns('/usr/sbin/syslog-ng')
-        Facter::Util::Resolution.expects(:exec).with('syslog-ng --version').returns(output)
         expect(Facter.value(:syslog_ng_version)).to eq(expected_syslog_ng_version)
+        expect(Facter::Util::Resolution).to have_received(:which).with('syslog-ng')
+        expect(Facter::Util::Resolution).to have_received(:exec).with('syslog-ng --version')
       end
 
       it 'structured' do
-        Facter::Util::Resolution.expects(:which).with('syslog-ng').returns('/usr/sbin/syslog-ng')
-        Facter::Util::Resolution.expects(:exec).with('syslog-ng --version').returns(output)
         syslog_ng = Facter.value(:syslog_ng)
         expect(syslog_ng.keys).to eq(expected_syslog_ng.keys)
         syslog_ng.each_key do |k|
           expect(syslog_ng[k]).to eq(expected_syslog_ng[k])
         end
+        expect(Facter::Util::Resolution).to have_received(:which).with('syslog-ng')
+        expect(Facter::Util::Resolution).to have_received(:exec).with('syslog-ng --version')
       end
     end
   end
