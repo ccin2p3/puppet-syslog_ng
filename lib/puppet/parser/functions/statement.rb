@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/AccessorMethodName, Style/ClassVars, Style/PredicateName
+# rubocop:disable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
 module Statement
   # source s_name { .. };
   class Stment
@@ -38,6 +38,7 @@ module Statement
   # like the file name in a file source
   class SimpleParameter < Parameter
     def initialize(value = '')
+      super()
       @value = value
     end
 
@@ -51,6 +52,7 @@ module Statement
   # like flags in a source
   class TypedParameter < Parameter
     def initialize(type = '')
+      super()
       @type = type
       @values = []
     end
@@ -85,6 +87,7 @@ module Statement
   # flags(no-parse): like no-parse
   class TypedParameterSimpleValue < TypedParameterValue
     def initialize(value = nil)
+      super()
       @value = value
     end
 
@@ -96,6 +99,7 @@ module Statement
   # like tls in tcp source
   class TypedParameterTypedValue < TypedParameterValue
     def initialize(type = '')
+      super()
       @type = type
       @arguments = []
     end
@@ -298,3 +302,4 @@ module Statement
     render_configuration
   end
 end
+# rubocop:enable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName

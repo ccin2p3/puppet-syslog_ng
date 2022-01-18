@@ -72,7 +72,7 @@ describe 'generate_statement' do
     end
   end
 
-  context 'Array notation with one item can be omitted' do
+  context 'Array notation with one item and flags can be omitted' do
     let(:param2) do
       {
         'type' => 'subst',

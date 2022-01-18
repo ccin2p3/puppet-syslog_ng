@@ -27,7 +27,7 @@ describe 'generate_log' do
     end
   end
 
-  context 'With simple options' do
+  context 'With complex options' do
     let(:title) { 's_gsoc' }
     let(:options) do
       [
