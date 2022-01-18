@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable Style/AccessorMethodName, Style/ClassVars, Style/PredicateName
 module Statement
   # source s_name { .. };
@@ -20,7 +22,7 @@ module Statement
 
       Statement.decrease_indent
       tail = Statement.getln('};')
-      header + built_options.join('') + tail
+      header + built_options.join + tail
     end
   end
 
@@ -69,7 +71,7 @@ module Statement
       tail = Statement.line(')')
 
       if @values.length >= 1
-        header + built_values.join(",\n") + "\n" + tail
+        "#{header}#{built_values.join(",\n")}\n#{tail}"
       else
         header + tail
       end
@@ -112,7 +114,7 @@ module Statement
 
       Statement.decrease_indent
       tail = Statement.line(')')
-      header + built_args.join('') + "\n" + tail
+      "#{header}#{built_args.join}\n#{tail}"
     end
   end
 
@@ -150,7 +152,7 @@ module Statement
 
       Statement.decrease_indent
       tail = Statement.getln(');')
-      header + built_params.join(",\n") + "\n" + tail
+      "#{header}#{built_params.join(",\n")}\n#{tail}"
     end
   end
 
@@ -266,11 +268,12 @@ module Statement
   end
 
   def self.parse_tree(options)
-    if options.is_a? Array
+    case options
+    when Array
       options.each do |item|
         create_and_add_option(item)
       end
-    elsif options.is_a? Hash
+    when Hash
       item = options
       create_and_add_option(item)
     else

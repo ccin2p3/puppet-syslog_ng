@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'generate_log' do
@@ -11,10 +13,10 @@ describe 'generate_log' do
     end
     let(:expected) do
       <<~EOT
-      log {
-          source(s_gsoc2014);
-          destination(d_gsoc);
-      };
+        log {
+            source(s_gsoc2014);
+            destination(d_gsoc);
+        };
       EOT
     end
 
@@ -49,20 +51,20 @@ describe 'generate_log' do
     end
     let(:expected) do
       <<~EOT
-      log {
-          source(s_gsoc2014);
-          junction {
-              channel {
-                  filter(f_json);
-                  parser(p_json);
-              };
-              channel {
-                  filter(f_not_json);
-                  flags(final);
-              };
-          };
-          destination(d_gsoc);
-      };
+        log {
+            source(s_gsoc2014);
+            junction {
+                channel {
+                    filter(f_json);
+                    parser(p_json);
+                };
+                channel {
+                    filter(f_not_json);
+                    flags(final);
+                };
+            };
+            destination(d_gsoc);
+        };
       EOT
     end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'generate_statement' do
@@ -5,17 +7,17 @@ describe 'generate_statement' do
   let(:type) { 'rewrite' }
   let(:param1_expected) do
     <<~EOT
-    rewrite r_name {
-        subst(
-            'string',
-            'replacement',
-            value(
-                field
-            ),
-            flags(
-            )
-        );
-    };
+      rewrite r_name {
+          subst(
+              'string',
+              'replacement',
+              value(
+                  field
+              ),
+              flags(
+              )
+          );
+      };
     EOT
   end
 
@@ -84,18 +86,18 @@ describe 'generate_statement' do
     end
     let(:param2_expected) do
       <<~EOT
-      rewrite r_name {
-          subst(
-              'string',
-              'replacement',
-              value(
-                  field
-              ),
-              flags(
-                  ignore-case, store-matches
-              )
-          );
-      };
+        rewrite r_name {
+            subst(
+                'string',
+                'replacement',
+                value(
+                    field
+                ),
+                flags(
+                    ignore-case, store-matches
+                )
+            );
+        };
       EOT
     end
 
@@ -168,53 +170,53 @@ describe 'generate_statement' do
     end
     let(:expected) do
       <<~EOT
-      source s_external {
-          udp(
-              ip(
-                  '192.168.42.2'
-              ),
-              port(
-                  514
-              ),
-              tls(
-                  key_file(
-                      "/opt/syslog-ng/etc/syslog-ng/key.d/syslog-ng.key"
-                  ),
-                  cert_file(
-                      "/opt/syslog-ng/etc/syslog-ng/cert.d/syslog-ng.cert"
-                  ),
-                  peer_verify(
-                      optional-untrusted
-                  )
-              )
-          );
-          tcp(
-              ip(
-                  '192.168.42.2'
-              ),
-              port(
-                  514
-              )
-          );
-          syslog(
-              flags(
-                  no-multi-line,
-                  no-parse
-              ),
-              ip(
-                  '10.65.0.5'
-              ),
-              keep-alive(
-                  yes
-              ),
-              keep_hostname(
-                  yes
-              ),
-              transport(
-                  udp
-              )
-          );
-      };
+        source s_external {
+            udp(
+                ip(
+                    '192.168.42.2'
+                ),
+                port(
+                    514
+                ),
+                tls(
+                    key_file(
+                        "/opt/syslog-ng/etc/syslog-ng/key.d/syslog-ng.key"
+                    ),
+                    cert_file(
+                        "/opt/syslog-ng/etc/syslog-ng/cert.d/syslog-ng.cert"
+                    ),
+                    peer_verify(
+                        optional-untrusted
+                    )
+                )
+            );
+            tcp(
+                ip(
+                    '192.168.42.2'
+                ),
+                port(
+                    514
+                )
+            );
+            syslog(
+                flags(
+                    no-multi-line,
+                    no-parse
+                ),
+                ip(
+                    '10.65.0.5'
+                ),
+                keep-alive(
+                    yes
+                ),
+                keep_hostname(
+                    yes
+                ),
+                transport(
+                    udp
+                )
+            );
+        };
       EOT
     end
 

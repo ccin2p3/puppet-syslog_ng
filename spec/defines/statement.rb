@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for 'Statement' do |id, type|
   let(:facts) do
     { concat_basedir: '/dne',
@@ -12,6 +14,6 @@ shared_examples_for 'Statement' do |id, type|
   let(:options) { {} }
 
   it do
-    is_expected.to contain_concat__fragment('syslog_ng::' + type + ' ' + title)
+    is_expected.to contain_concat__fragment("syslog_ng::#{type} #{title}")
   end
 end
