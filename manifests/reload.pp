@@ -1,6 +1,6 @@
 #
 class syslog_ng::reload (
-  $syntax_check_before_reloads = true
+  Boolean $syntax_check_before_reloads = true,
 ) {
   include syslog_ng
 

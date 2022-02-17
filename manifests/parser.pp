@@ -1,6 +1,6 @@
 #
 define syslog_ng::parser (
-  $params = []
+  Data $params = [],
 ) {
   $type = 'parser'
   $id = $title

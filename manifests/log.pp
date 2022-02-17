@@ -1,6 +1,6 @@
 #
 define syslog_ng::log (
-  $params = []
+  Data $params = [],
 ) {
   $order = '80'
   concat::fragment { "syslog_ng::log ${title}":

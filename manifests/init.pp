@@ -1,29 +1,23 @@
 # Copyright 2014 Tibor Benke
 
 class syslog_ng (
-  $config_file,
-  $package_name,
-  $service_name,
-  $module_prefix,
-  $init_config_file,
-  $init_config_hash,
-  $config_file_header,
-  $package_ensure,
-  $manage_init_defaults = false,
-  $manage_repo          = false,
-  $manage_package       = true,
-  $modules              = [],
-  $sbin_path            = '/usr/sbin',
-  $user                 = 'root',
-  $group                = 'root',
-  $syntax_check_before_reloads = true,
+  Stdlib::Absolutepath $config_file,
+  String[1] $package_name,
+  String[1] $service_name,
+  String[1] $module_prefix,
+  Stdlib::Absolutepath $init_config_file,
+  Hash $init_config_hash,
+  String[1] $config_file_header,
+  String[1] $package_ensure,
+  Boolean $manage_init_defaults        = false,
+  Boolean $manage_repo                 = false,
+  Boolean $manage_package              = true,
+  Array[String[1]] $modules            = [],
+  Stdlib::Absolutepath $sbin_path      = '/usr/sbin',
+  String[1] $user                      = 'root',
+  String[1] $group                     = 'root',
+  Boolean $syntax_check_before_reloads = true,
 ) {
-  validate_bool($syntax_check_before_reloads)
-  validate_bool($manage_package)
-  validate_bool($manage_init_defaults)
-  validate_array($modules)
-  validate_hash($init_config_hash)
-
   if ($manage_package) {
     include syslog_ng::repo
 

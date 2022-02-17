@@ -1,6 +1,6 @@
 #
 define syslog_ng::filter (
-  $params = []
+  Data $params = [],
 ) {
   $type = 'filter'
   $id = $title
