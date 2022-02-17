@@ -7,6 +7,7 @@ require 'voxpupuli/acceptance/spec_helper_acceptance'
 
 configure_beaker do |host|
   install_module_from_forge_on(host, 'puppetlabs/apt', '>= 0')
+  install_module_from_forge_on(host, 'puppet/epel', '>= 0')
 end
 
 Dir['./spec/support/acceptance/**/*.rb'].sort.each { |f| require f }
