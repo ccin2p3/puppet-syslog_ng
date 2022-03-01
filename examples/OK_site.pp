@@ -22,10 +22,10 @@ syslog_ng::options { 'global_options':
 syslog_ng::source { 's_gsoc':
   params => {
     'type'    => 'tcp',
-    'options' => {
-      'ip'   => "'127.0.0.1'",
-      'port' => 1999,
-    },
+    'options' => [
+      { 'ip' => "'127.0.0.1'", },
+      { 'port' => 1999, },
+    ],
   },
 }
 
