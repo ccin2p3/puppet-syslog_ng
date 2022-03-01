@@ -2,13 +2,13 @@ class { 'syslog_ng':
   config_file                 => '/tmp/syslog-ng.conf',
   manage_package              => false,
   syntax_check_before_reloads => false,
-  user                        => 'fwernli',
-  group                       => 'fwernli',
+  user                        => 'balabit',
+  group                       => 'balabit',
   manage_init_defaults        => false,
 }
 
-$coloss_analyzer = 'coloss-analyzer.in2p3.fr'
-$coloss_analyzers = ['coloss-analyzer-failover.in2p3.fr', 'coloss-analyzer.in2p3.fr']
+$coloss_analyzer = 'coloss-analyzer.example.com'
+$coloss_analyzers = ['coloss-analyzer-failover.example.com', 'coloss-analyzer.example.com']
 ::syslog_ng::destination { 'd_coloss':
   params => [
     { 'syslog-ng' => flatten([

@@ -4,3 +4,7 @@ if $facts['os']['name'] == 'Ubuntu' {
     ensure => present,
   }
 }
+
+user { 'balabit':
+  ensure => present,
+}

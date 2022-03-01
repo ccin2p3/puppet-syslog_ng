@@ -29,4 +29,18 @@ describe 'syslog_ng class' do
       PUPPET
     end
   end
+
+  Dir[File.join(__dir__, '..', '..', 'examples', 'OK_*.pp')].each do |f|
+    example = File.basename(f)
+    context "Example #{example}" do
+      it_behaves_like 'the example', example
+    end
+  end
+
+  Dir[File.join(__dir__, '..', '..', 'examples', 'NOK_*.pp')].each do |f|
+    example = File.basename(f)
+    context "Example #{example}" do
+      it { is_expected.to compile.and_raise_error }
+    end
+  end
 end
