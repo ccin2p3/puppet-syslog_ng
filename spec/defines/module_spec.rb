@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'syslog_ng::module', type: 'define' do
@@ -23,6 +25,7 @@ describe 'syslog_ng::module', type: 'define' do
     it { is_expected.to compile }
     it { is_expected.to contain_package('MODPREFIX_foo').with_ensure('present') }
   end
+
   context 'When osfamily is RedHat' do
     let :facts do
       default_facts.merge(
@@ -36,6 +39,7 @@ describe 'syslog_ng::module', type: 'define' do
     it { is_expected.to compile }
     it { is_expected.to contain_package('syslog-ng-foo').with_ensure('present') }
   end
+
   context 'When osfamily is Debian' do
     context 'with defaults' do
       let :pre_condition do
@@ -46,6 +50,7 @@ describe 'syslog_ng::module', type: 'define' do
       it { is_expected.to contain_package('syslog-ng-mod-foo').with_ensure('present') }
     end
   end
+
   context 'When osfamily is Suse' do
     let :facts do
       default_facts.merge(

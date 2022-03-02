@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'generate_options' do
@@ -8,10 +10,10 @@ describe 'generate_options' do
     end
     let(:expected) do
       <<~EOT
-      options {
-          create_dirs(yes);
-          log_fifo_size(2048);
-      };
+        options {
+            create_dirs(yes);
+            log_fifo_size(2048);
+        };
       EOT
     end
 

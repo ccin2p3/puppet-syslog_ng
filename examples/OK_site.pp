@@ -2,17 +2,29 @@ class { 'syslog_ng':
   config_file                 => '/tmp/syslog-ng.conf',
   manage_package              => false,
   syntax_check_before_reloads => false,
-  user                        => 'fwernli',
-  group                       => 'fwernli',
+  user                        => 'balabit',
+  group                       => 'balabit',
   manage_init_defaults        => false,
+}
+
+# the header written by this module has order == 1, so the version must be 02
+syslog_ng::config { 'version':
+  content => '@version: 3.6',
+  order   => '02',
+}
+
+syslog_ng::options { 'global_options':
+  options => {
+    'bad_hostname' => "'no'",
+  },
 }
 
 syslog_ng::source { 's_gsoc':
   params => {
     'type'    => 'tcp',
     'options' => [
-      { 'ip' => "'127.0.0.1'" },
-      { 'port' => 1999 },
+      { 'ip' => "'127.0.0.1'", },
+      { 'port' => 1999, },
     ],
   },
 }
@@ -40,17 +52,24 @@ syslog_ng::source { 's_external':
         { 'keep_hostname' => ['yes'] },
         { 'transport' => ['udp'] }
       ]
-    },
-    {
-      'tcp'  => [
-        { 'ip' => ["'127.0.0.1'"] },
-        { 'port' => [514] },
-        { 'tls' => [
-            { 'key_file' => ['"/opt/syslog-ng/etc/syslog-ng/key.d/syslog-ng.key"'] },
-            { 'cert_file'=> '"/opt/syslog-ng/etc/syslog-ng/cert.d/syslog-ng.cert"' },
-            { 'peer_verify' => 'optional-untrusted' }
-        ] }
-      ]
     }
+  ],
+}
+
+syslog_ng::destination { 'd_udp':
+  params => {
+    'type'    => 'udp',
+    'options' => [
+      "'127.0.0.1'",
+      { 'port' => '1999' },
+      { 'localport' => '999' },
+    ],
+  },
+}
+
+syslog_ng::log { 'l':
+  params => [
+    { 'source' => 's_external' },
+    { 'destination' => 'd_udp' },
   ],
 }

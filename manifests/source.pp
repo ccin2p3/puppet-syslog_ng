@@ -1,6 +1,6 @@
 #
 define syslog_ng::source (
-  $params = []
+  Data $params = [],
 ) {
   include syslog_ng
 

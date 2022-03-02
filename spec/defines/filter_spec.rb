@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 if RUBY_VERSION >= '1.9.2'
   require_relative 'statement'
 else
-  require File.join(File.expand_path(File.dirname(__FILE__)), './statement')
+  require File.join(__dir__, './statement')
 end
 
 describe 'syslog_ng::filter' do

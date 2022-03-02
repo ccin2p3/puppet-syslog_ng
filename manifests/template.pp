@@ -1,6 +1,6 @@
 #
 define syslog_ng::template (
-  $params = []
+  Data $params = [],
 ) {
   $type = 'template'
   $id = $title

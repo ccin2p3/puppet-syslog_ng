@@ -1,6 +1,6 @@
 #
 define syslog_ng::rewrite (
-  $params = []
+  Data $params = [],
 ) {
   $type = 'rewrite'
   $id = $title

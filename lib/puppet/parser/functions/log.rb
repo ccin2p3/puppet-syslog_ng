@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'stringio'
 
 module Log
@@ -19,13 +21,14 @@ module Log
 
     value = hash[key]
 
-    if value.is_a? String
+    case value
+    when String
       build_reference(key, value, indent, buffer)
-    elsif value.is_a? Array
+    when Array
       buffer << "#{indent}#{key} {\n"
       build_array(value, indent, buffer)
       buffer << "#{indent}};\n"
-    elsif value.is_a? Hash
+    when Hash
       buffer << "#{indent}Build error\n"
     end
   end

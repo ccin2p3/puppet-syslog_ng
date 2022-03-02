@@ -1,6 +1,6 @@
 #
 define syslog_ng::destination (
-  $params = []
+  Data $params = [],
 ) {
   $type = 'destination'
   $id = $title

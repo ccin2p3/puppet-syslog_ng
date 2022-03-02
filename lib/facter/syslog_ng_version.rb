@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Facter.add(:syslog_ng_version) do
   setcode do
     syslog_ng = Facter.value(:syslog_ng)

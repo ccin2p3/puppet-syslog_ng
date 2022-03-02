@@ -1,6 +1,6 @@
 #
 define syslog_ng::options (
-  $options = {}
+  Hash $options = {},
 ) {
   $order = '10'
 

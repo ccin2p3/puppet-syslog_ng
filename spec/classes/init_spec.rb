@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'syslog_ng' do
@@ -21,6 +23,7 @@ describe 'syslog_ng' do
       is_expected.to contain_package('syslog-ng-core')
       is_expected.to contain_service('syslog-ng')
     }
+
     it {
       is_expected.to contain_file('/etc/default/syslog-ng')
     }
@@ -56,6 +59,7 @@ describe 'syslog_ng' do
         is_expected.to contain_package('syslog-ng')
         is_expected.to contain_service('syslog-ng')
       }
+
       it {
         is_expected.to contain_file('/etc/sysconfig/syslog-ng')
       }
@@ -72,6 +76,7 @@ describe 'syslog_ng' do
       it { is_expected.to contain_yumrepo('czanik-syslog-ng-githead') }
     end
   end
+
   context 'On SLES with init_defaults set to true' do
     let(:params) do
       {
@@ -89,10 +94,12 @@ describe 'syslog_ng' do
       is_expected.to contain_package('syslog-ng')
       is_expected.to contain_service('syslog-ng')
     }
+
     it {
       is_expected.to contain_file('/etc/sysconfig/syslog-ng')
     }
   end
+
   context 'When asked not to manage package' do
     let(:params) do
       {
@@ -102,10 +109,11 @@ describe 'syslog_ng' do
 
     it { is_expected.not_to contain_package('syslog-ng-core') }
   end
+
   context 'When asked to use additional module' do
     let(:params) do
       {
-        modules: %w[foo bar baz]
+        modules: ['foo', 'bar', 'baz']
       }
     end
 
@@ -115,10 +123,12 @@ describe 'syslog_ng' do
       is_expected.to contain_syslog_ng__module('baz')
     }
   end
+
   context 'When config changes' do
     it {
       is_expected.to contain_concat('/etc/syslog-ng/syslog-ng.conf').that_notifies('Exec[syslog_ng_reload]')
     }
+
     context 'and asked to check syntax before reload' do
       let(:params) do
         {
@@ -127,9 +137,10 @@ describe 'syslog_ng' do
       end
 
       it {
-        is_expected.to contain_concat('/etc/syslog-ng/syslog-ng.conf').with_validate_cmd(/syntax-only/)
+        is_expected.to contain_concat('/etc/syslog-ng/syslog-ng.conf').with_validate_cmd(%r{syntax-only})
       }
     end
+
     context 'and asked not to check syntax before reload' do
       let(:params) do
         {

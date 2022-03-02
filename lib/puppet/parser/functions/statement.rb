@@ -1,4 +1,6 @@
-# rubocop:disable Style/AccessorMethodName, Style/ClassVars, Style/PredicateName
+# frozen_string_literal: true
+
+# rubocop:disable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
 module Statement
   # source s_name { .. };
   class Stment
@@ -20,7 +22,7 @@ module Statement
 
       Statement.decrease_indent
       tail = Statement.getln('};')
-      header + built_options.join('') + tail
+      header + built_options.join + tail
     end
   end
 
@@ -36,6 +38,7 @@ module Statement
   # like the file name in a file source
   class SimpleParameter < Parameter
     def initialize(value = '')
+      super()
       @value = value
     end
 
@@ -49,6 +52,7 @@ module Statement
   # like flags in a source
   class TypedParameter < Parameter
     def initialize(type = '')
+      super()
       @type = type
       @values = []
     end
@@ -69,7 +73,7 @@ module Statement
       tail = Statement.line(')')
 
       if @values.length >= 1
-        header + built_values.join(",\n") + "\n" + tail
+        "#{header}#{built_values.join(",\n")}\n#{tail}"
       else
         header + tail
       end
@@ -83,6 +87,7 @@ module Statement
   # flags(no-parse): like no-parse
   class TypedParameterSimpleValue < TypedParameterValue
     def initialize(value = nil)
+      super()
       @value = value
     end
 
@@ -94,6 +99,7 @@ module Statement
   # like tls in tcp source
   class TypedParameterTypedValue < TypedParameterValue
     def initialize(type = '')
+      super()
       @type = type
       @arguments = []
     end
@@ -112,7 +118,7 @@ module Statement
 
       Statement.decrease_indent
       tail = Statement.line(')')
-      header + built_args.join('') + "\n" + tail
+      "#{header}#{built_args.join}\n#{tail}"
     end
   end
 
@@ -150,7 +156,7 @@ module Statement
 
       Statement.decrease_indent
       tail = Statement.getln(');')
-      header + built_params.join(",\n") + "\n" + tail
+      "#{header}#{built_params.join(",\n")}\n#{tail}"
     end
   end
 
@@ -266,11 +272,12 @@ module Statement
   end
 
   def self.parse_tree(options)
-    if options.is_a? Array
+    case options
+    when Array
       options.each do |item|
         create_and_add_option(item)
       end
-    elsif options.is_a? Hash
+    when Hash
       item = options
       create_and_add_option(item)
     else
@@ -295,3 +302,4 @@ module Statement
     render_configuration
   end
 end
+# rubocop:enable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
