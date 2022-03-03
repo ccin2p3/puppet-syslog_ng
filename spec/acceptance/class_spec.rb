@@ -40,7 +40,9 @@ describe 'syslog_ng class' do
   Dir[File.join(__dir__, '..', '..', 'examples', 'NOK_*.pp')].each do |f|
     example = File.basename(f)
     context "Example #{example}" do
-      it { is_expected.to compile.and_raise_error }
+      it 'applies with errors' do
+        apply_manifest(File.read(f), expect_failures: true)
+      end
     end
   end
 end
