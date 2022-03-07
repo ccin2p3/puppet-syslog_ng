@@ -502,68 +502,9 @@ If you use it on an other platform, please let me know about it!
 
 ## Development
 
-### Unit tests
+### Tests
 
-```
-bundle install
-bundle exec rake spec
-```
-
-or alternatively
-
-```
-pdk test unit
-```
-
-### Smoke tests
-
-There are some examples in the `tests` directory.
-These can be tested using `puppet apply tests/<test>.pp`.
-
-### Docker
-
-You can run the tests locally on multiple platform at the same time. Check the subdirs undes `docker/` about the currently used platforms and Ruby versions.
-
-### Preparations to run the tests
-You can run the tests on your machine, if you have `Docker`, `fig` and `make` installed. You can find more information [here](https://docs.docker.com/installation/) how to install Docker.
-
-For fig, you can install it with pip:
-```
-sudo pip install fig
-```
-
-You can install make on Debian like systems with the following command:
-```
-sudo apt-get install make
-```
-
-### Running the tests
-You can use `make` to run the tests:
-* `make [all]:` build and run all tests on all platforms
-* `make build:` build the Docker images
-* `make check:` run the tests on all platforms
-* `make ps`: check the exit codes of the platform tests
-* `make logs:` view the test logs
-* `make clean`: remove all temporary files
-
-### The workflow
-First, run `make` in the cloned repo. That will build the Docker images
-and start the tests. It will output a lot of information, but the last
-lines are the most substantial. They looks similar to these:
-```
-successfully built 0ff4aa52ce3a
-fig up -d
-Recreating ihrweinsyslogng_ubuntu1404ruby193_1...
-Recreating ihrweinsyslogng_ubuntu1204ruby187_1...
-fig ps
-               Name                    Command    State   Ports
----------------------------------------------------------------
-ihrweinsyslogng_ubuntu1204ruby187_1   rake spec   Up
-ihrweinsyslogng_ubuntu1404ruby193_1   rake spec   Up
-```
-Now, you can check the progress with `make ps`. If they are not
-runnnig, you can see the exit codes. 0 mean OK.
-
+This module use the Voxpupuli tooling, so the Voxpupuli documentation apply about [how to run the test suite=(https://voxpupuli.org/docs/how_to_run_tests/).
 
 ### Other information
 
