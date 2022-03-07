@@ -1,4 +1,9 @@
+# @summary Manage the syslog-ng repository
+#
+# @api private
 class syslog_ng::repo {
+  assert_private()
+
   if $syslog_ng::manage_repo {
     $major_release = $facts['os']['release']['major']
 

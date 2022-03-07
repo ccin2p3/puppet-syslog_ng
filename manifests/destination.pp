@@ -1,3 +1,5 @@
+# @summary Add a destination
+#
 # Creates a destination in your configuration.
 #
 # ```puppet

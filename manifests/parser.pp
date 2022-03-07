@@ -1,3 +1,5 @@
+# @summary Add a parser
+#
 # Creates a parser statement in your configuration.
 #
 # ```puppet

@@ -1,3 +1,5 @@
+# @summary Add a log
+#
 # Creates log paths in your configuration. It can create channels, junctions and reference already defined sources, destinations, etc. The syntax is a little bit different then the one previously described under statements.
 #
 # Here is a simple rule: if you want to reference an already defined type (e.g. s_gsoc2014) use a hash with one key-value pair. The key must be the type of the statement (e.g. source) and the value must be its title.

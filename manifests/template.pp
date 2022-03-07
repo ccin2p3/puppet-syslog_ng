@@ -1,3 +1,5 @@
+# @summary Add a template
+#
 # Creates one or more templates in your configuration.
 #
 # ```puppet

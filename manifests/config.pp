@@ -1,3 +1,5 @@
+# @summary Add raw configuration
+#
 # Some elements of the syslog-ng DSL are not supported by this module (mostly the boolean operators in filters) so you may want to keep some configuration snippets in their original form. This type lets you write texts into the configuration without any parsing or processing.
 #
 # Every configuration file begins with a @version: <version> line. You can use this type to write this line into the configuration, make comments or use existing snippets.

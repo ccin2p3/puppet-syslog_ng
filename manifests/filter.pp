@@ -1,3 +1,5 @@
+# @summary Add a filter
+#
 # Creates a filter in your configuration. **It does not support binary operators, such as `and` or `or`**. Please, use a `syslog_ng::config` if you need this functionality.
 #
 # ```puppet

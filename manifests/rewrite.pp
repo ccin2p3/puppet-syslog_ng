@@ -1,3 +1,5 @@
+# @summary Add a rewrite rule
+#
 # Creates one or more rewrite rules in your configuration.
 #
 # ```puppet

@@ -1,3 +1,5 @@
+# @summary Add global options
+#
 # Creates a global options statement. Currently it is not a class, so you should not declare it multiple times! It is not defined as a class, so you can declare it as other similar types.
 #
 # ```puppet

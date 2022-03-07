@@ -1,9 +1,21 @@
+# @summary Manage syslog-ng
+#
 # @author Copyright 2014 Tibor Benke
 #
 # The main class of this module. By including it you get an installed syslog-ng with default configuration on your system.
 #
 # @param config_file
 #   Configures the path of the configuration file.
+# @param package_name
+#   Name of the package to manage when `manage_package` is `true`.
+# @param service_name
+#   Name of the syslog-ng service.
+# @param module_prefix
+#   A string to prepend to syslog-ng module names to obtain the corresponding package names.
+# @param config_file_header
+#   A header string that appear on top of the syslog-ng configuration.
+# @param package_ensure
+#   The value of the `ensure` parameter of package resources.
 # @param manage_repo
 #   Controls if the module is managing the unofficial repositories of syslog-ng packages. Use true if you want to use the latest version of syslog-ng from the unofficial Debian repository or unofficial RedHat repository.
 # @param manage_package

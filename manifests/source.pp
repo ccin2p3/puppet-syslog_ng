@@ -1,3 +1,5 @@
+# @summary Add a source
+#
 # Creates a source in your configuration.
 #
 # ```puppet

@@ -1,4 +1,4 @@
-#
+# @summary Install syslog-ng modules
 define syslog_ng::module {
   include syslog_ng
   $module_prefix = $syslog_ng::module_prefix
