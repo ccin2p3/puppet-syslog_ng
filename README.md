@@ -2,25 +2,26 @@
 
 #### Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description](#module-description)
-    * [Configuration syntax](#statement_syntax)
-3. [Setup - The basics of getting started with syslog_ng](#setup)
-    * [Puppet Forge](#puppet-forge)
-    * [Installing from source](#installing-from-source)
-    * [What syslog_ng affects](#what-syslog_ng-affects)
-    * [Getting started with syslog_ng](#beginning-with-syslog_ng)
-4. [Usage - Configuration options and additional functionality](#usage)
-    * [Facts](#facts)
-    * [Classes and defined types](#classes-and-defined-types)
-5. [Implementation details](#implementation-details)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
-    * [Preparation to run the tests](#preparations-to-run-the-tests)
-    * [Running the tests](#running-the-tests)
-    * [The workflow](#the-workflow)
-    * [Other information](#other-information)
-    * [Changelog](#changelog)
+<!-- vim-markdown-toc GFM -->
+
+* [Overview](#overview)
+* [Module Description](#module-description)
+  * [Configuration syntax](#configuration-syntax)
+* [Setup](#setup)
+  * [Puppet Forge](#puppet-forge)
+  * [Installing from source](#installing-from-source)
+  * [What syslog_ng affects](#what-syslog_ng-affects)
+  * [Getting started with syslog_ng](#getting-started-with-syslog_ng)
+* [Usage](#usage)
+  * [Facts](#facts)
+  * [Classes and defined types](#classes-and-defined-types)
+* [Implementation details](#implementation-details)
+* [Limitations](#limitations)
+* [Development](#development)
+  * [Tests](#tests)
+  * [Other information](#other-information)
+
+<!-- vim-markdown-toc -->
 
 ## Overview
 This module lets you generate syslog-ng configuration using puppet. It supports
@@ -47,7 +48,7 @@ The supported statements:
  * +1: `config`, which lets you insert existing configuration snippets.
 
 Each type is under the `syslog_ng::` namespace, so you can use them like this:
-```
+```puppet
 syslog_ng::source { 's_gsoc':
     params => {
         'type' => 'tcp',
@@ -60,7 +61,7 @@ syslog_ng::source { 's_gsoc':
 ```
 There is a shorter form:
 <a name="shorter_form"></a>
-```
+```puppet
 syslog_ng::source { 's_gsoc':
     params => {
         'tcp' => [
@@ -71,7 +72,7 @@ syslog_ng::source { 's_gsoc':
 }
 ```
 
-### <a name="statement_syntax"></a> Configuration syntax
+### Configuration syntax
 Every statement has the same layout. They can accept a `params` parameter, which
 can be a hash or an array of hashes. Each hash should have a `type` and `options`
 key or you can use a [shorter form](#shorter_form).
@@ -234,4 +235,3 @@ I am open to any pull requests, either for bug fixes or feature
 **Note for commiters:**
 
 The `master` branch is a sacred place, do not commit to it directly, we should touch it only using pull requests.
-###  Changelog
