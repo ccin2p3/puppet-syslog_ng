@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'generate_options' do
+describe 'syslog_ng::generate_options' do
   context 'With options' do
     let(:params) do
       { 'log_fifo_size' => 2048,
@@ -18,17 +18,13 @@ describe 'generate_options' do
     end
 
     it 'fills the options statement' do
-      result = scope.function_generate_options([params])
-      expect(result).to be_a String
-      expect(result).to eq expected
+      is_expected.to run.with_params(params).and_return(expected)
     end
   end
 
   context 'Without options' do
     it 'generates nothing' do
-      result = scope.function_generate_options([{}])
-      expect(result).to be_a String
-      expect(result).to eq ''
+      is_expected.to run.with_params({}).and_return('')
     end
   end
 end

@@ -2,9 +2,15 @@
 
 require 'stringio'
 
-module Puppet::Parser::Functions
-  newfunction(:generate_options, type: :rvalue) do |args|
-    options = args[0]
+# Generate options
+Puppet::Functions.create_function(:'syslog_ng::generate_options') do
+  # @param options
+  # @return [String] The generated options
+  dispatch :generate_options do
+    param 'Hash[String[1], Variant[Integer, String]]', :options
+  end
+
+  def generate_options(options)
     buffer = StringIO.new
     buffer << "options {\n"
     indent = '    '

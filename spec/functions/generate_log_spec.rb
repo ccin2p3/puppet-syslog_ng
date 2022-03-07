@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'generate_log' do
+describe 'syslog_ng::generate_log' do
   context 'With simple options' do
     let(:title) { 's_gsoc' }
     let(:options) do
@@ -21,9 +21,7 @@ describe 'generate_log' do
     end
 
     it 'generates a flat log' do
-      result = scope.function_generate_log([options])
-      expect(result).to be_a String
-      expect(result).to eq expected
+      is_expected.to run.with_params(options).and_return(expected)
     end
   end
 
@@ -69,9 +67,7 @@ describe 'generate_log' do
     end
 
     it 'generates a complex log' do
-      result = scope.function_generate_log([options])
-      expect(result).to be_a String
-      expect(result).to eq expected
+      is_expected.to run.with_params(options).and_return(expected)
     end
   end
 end
