@@ -1,5 +1,29 @@
-# Copyright 2014 Tibor Benke
-
+# @author Copyright 2014 Tibor Benke
+#
+# The main class of this module. By including it you get an installed syslog-ng with default configuration on your system.
+#
+# @param config_file
+#   Configures the path of the configuration file.
+# @param manage_repo
+#   Controls if the module is managing the unofficial repositories of syslog-ng packages. Use true if you want to use the latest version of syslog-ng from the unofficial Debian repository or unofficial RedHat repository.
+# @param manage_package
+#   Controls if the module is managing the package resource or not. Use false if you are already handling this in your manifests.
+# @param manage_init_defaults
+#   Controls if the module is managing the init script's config file (See init_config_file and init_config_hash).
+# @param modules
+#   Configures additional syslog-ng modules. If `manage_package` is set to `true` this will also install the corresponding packages, *e.g.* `syslog-ng-riemann` on RedHat if `modules = ['riemann']`.
+# @param sbin_path
+#   Configures the path, where `syslog-ng` and `syslog-ng-ctl` binaries can be found.
+# @param user
+#   Configures `syslog-ng` to run as `user`.
+# @param group
+#   Configures `syslog-ng` to run as `group`.
+# @param syntax_check_before_reloads
+#   The module always checks the syntax of the generated configuration. If it is not OK, the main configuration (usually /etc/syslog-ng/syslog-ng.conf) will not be overwritten, but you can disable this behavior by setting this parameter to false.
+# @param init_config_file
+#   Path to the init script configuration file.
+# @param init_config_hash
+#   Hash of init configuration options to put into `init_config_file`. This has OS specific defaults which will be merged to user specified value.
 class syslog_ng (
   Stdlib::Absolutepath $config_file,
   String[1] $package_name,

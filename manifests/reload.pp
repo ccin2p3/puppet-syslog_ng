@@ -1,4 +1,4 @@
-#
+# Contains a logic, which is able to reload `syslog-ng`. You should not use this class directly, it is part of the inner implementation.
 class syslog_ng::reload (
   Boolean $syntax_check_before_reloads = true,
 ) {
