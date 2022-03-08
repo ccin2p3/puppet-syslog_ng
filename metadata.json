@@ -19,6 +19,12 @@
   ],
   "operatingsystem_support": [
     {
+      "operatingsystem": "AlmaLinux",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
         "7",
@@ -34,19 +40,23 @@
       ]
     },
     {
-      "operatingsystem": "Ubuntu",
+      "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "16.04",
-        "18.04",
-        "20.04"
+        "7",
+        "8"
       ]
     },
     {
-      "operatingsystem": "RedHat",
+      "operatingsystem": "Rocky",
       "operatingsystemrelease": [
-        "6",
-        "7",
         "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04",
+        "20.04"
       ]
     }
   ],
