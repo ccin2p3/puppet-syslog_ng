@@ -303,3 +303,20 @@ module Statement
   end
 end
 # rubocop:enable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
+
+# Generate statement
+Puppet::Functions.create_function(:'syslog_ng::generate_statement') do
+  # @param id
+  # @param type
+  # @param params
+  # @return [String] The generated statement
+  dispatch :generate_statement do
+    param 'String', :id
+    param 'String', :type
+    param 'Data', :params
+  end
+
+  def generate_statement(id, type, params)
+    Statement.generate_statement(id, type, params)
+  end
+end

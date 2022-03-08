@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'generate_statement' do
+describe 'syslog_ng::generate_statement' do
   let(:title) { 'r_name' }
   let(:type) { 'rewrite' }
   let(:param1_expected) do
@@ -35,15 +35,11 @@ describe 'generate_statement' do
     end
 
     it 'On parameters of options' do
-      result = scope.function_generate_statement([title, type, [param1]])
-      expect(result).to be_a String
-      expect(result).to eq param1_expected
+      is_expected.to run.with_params(title, type, [param1]).and_return(param1_expected)
     end
 
     it 'On options' do
-      result = scope.function_generate_statement([title, type, param1])
-      expect(result).to be_a String
-      expect(result).to eq param1_expected
+      is_expected.to run.with_params(title, type, param1).and_return(param1_expected)
     end
   end
 
@@ -60,15 +56,11 @@ describe 'generate_statement' do
     end
 
     it 'On parameters of options' do
-      result = scope.function_generate_statement([title, type, [param1]])
-      expect(result).to be_a String
-      expect(result).to eq param1_expected
+      is_expected.to run.with_params(title, type, [param1]).and_return(param1_expected)
     end
 
     it 'On options' do
-      result = scope.function_generate_statement([title, type, param1])
-      expect(result).to be_a String
-      expect(result).to eq param1_expected
+      is_expected.to run.with_params(title, type, param1).and_return(param1_expected)
     end
   end
 
@@ -102,15 +94,11 @@ describe 'generate_statement' do
     end
 
     it 'On parameters of options' do
-      result = scope.function_generate_statement([title, type, [param2]])
-      expect(result).to be_a String
-      expect(result).to eq param2_expected
+      is_expected.to run.with_params(title, type, [param2]).and_return(param2_expected)
     end
 
     it 'On options' do
-      result = scope.function_generate_statement([title, type, param2])
-      expect(result).to be_a String
-      expect(result).to eq param2_expected
+      is_expected.to run.with_params(title, type, param2).and_return(param2_expected)
     end
   end
 
@@ -130,9 +118,7 @@ describe 'generate_statement' do
     let(:params) { [param1] }
 
     it 'generates rewrite rule' do
-      result = scope.function_generate_statement([title, type, params])
-      expect(result).to be_a String
-      expect(result).to eq param1_expected
+      is_expected.to run.with_params(title, type, param1).and_return(param1_expected)
     end
   end
 
@@ -221,9 +207,7 @@ describe 'generate_statement' do
     end
 
     it 'generates source rule' do
-      result = scope.function_generate_statement([title, type, params])
-      expect(result).to be_a String
-      expect(result).to eq expected
+      is_expected.to run.with_params(title, type, params).and_return(expected)
     end
   end
 end

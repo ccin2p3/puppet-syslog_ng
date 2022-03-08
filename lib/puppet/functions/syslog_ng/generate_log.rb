@@ -42,3 +42,16 @@ module Log
     buffer.string
   end
 end
+
+# Gererate log
+Puppet::Functions.create_function(:'syslog_ng::generate_log') do
+  # @param options
+  # @return [String] The generated log
+  dispatch :generate_log do
+    param 'Data', :options
+  end
+
+  def generate_log(options)
+    Log.generate_log(options)
+  end
+end

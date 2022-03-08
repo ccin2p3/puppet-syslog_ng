@@ -1,4 +1,50 @@
+# @summary Add a source
 #
+# Creates a source in your configuration.
+#
+# ```puppet
+# syslog_ng::source { 's_gsoc':
+#   params => {
+#     'type'    => 'tcp',
+#     'options' => [
+#       { 'ip' => "'127.0.0.1'" },
+#       { 'port' => 1999 },
+#     ],
+#   },
+# }
+#
+# syslog_ng::source { 's_external':
+#   params => [
+#     {
+#       'type'    => 'udp',
+#       'options' => [
+#         { 'ip' => ["'127.0.0.1'"] },
+#         { 'port' => [514] },
+#       ],
+#     },
+#     {
+#       'type'    => 'tcp',
+#       'options' => [
+#         { 'ip' => ["'127.0.0.1'"] },
+#         { 'port' => [514] },
+#       ],
+#     },
+#     {
+#       'type'    => 'syslog',
+#       'options' => [
+#         { 'flags' => ['no-multi-line', 'no-parse'] },
+#         { 'ip' => ["'127.0.0.1'"] },
+#         { 'keep-alive' => ['yes'] },
+#         { 'keep_hostname' => ['yes'] },
+#         { 'transport' => ['udp'] },
+#       ],
+#     },
+#   ],
+# }
+# ```
+#
+# @param params
+#   An array of hashes or a single hash.
 define syslog_ng::source (
   Data $params = [],
 ) {
@@ -10,7 +56,7 @@ define syslog_ng::source (
 
   concat::fragment { "syslog_ng::source ${title}":
     target  => $syslog_ng::config_file,
-    content => generate_statement($id, $type, $params),
+    content => syslog_ng::generate_statement($id, $type, $params),
     order   => $order,
   }
 }

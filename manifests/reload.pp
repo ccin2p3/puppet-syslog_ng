@@ -1,7 +1,11 @@
+# @summary Manage syslog-ng configuration reloading
 #
+# @api private
 class syslog_ng::reload (
   Boolean $syntax_check_before_reloads = true,
 ) {
+  assert_private()
+
   include syslog_ng
 
   $config_file     = $syslog_ng::config_file
