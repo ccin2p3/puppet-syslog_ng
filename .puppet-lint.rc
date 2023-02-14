@@ -1,3 +1,8 @@
 --fail-on-warnings
 --no-parameter_documentation-check
 --no-parameter_types-check
+--no-manifest_whitespace_closing_bracket_before-check
+--no-manifest_whitespace_opening_brace_after-check
+--no-manifest_whitespace_opening_brace_before-check
+--no-manifest_whitespace_opening_bracket_after-check
+--no-manifest_whitespace_class_name_single_space_after-check
