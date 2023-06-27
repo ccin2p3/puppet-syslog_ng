@@ -3,6 +3,11 @@
 require 'spec_helper_acceptance'
 
 describe 'syslog_ng class' do
+  before do
+    shell('puppet module install puppetlabs/apt')
+    shell('puppet module install puppet/epel')
+  end
+
   it_behaves_like 'an idempotent resource' do
     let(:manifest) do
       <<-PUPPET

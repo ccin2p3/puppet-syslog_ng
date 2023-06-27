@@ -4,9 +4,3 @@
 
 inherit_gem:
   voxpupuli-test: rubocop.yml
-
-Style/TrailingCommaInArguments:
-  EnforcedStyleForMultiline: consistent_comma
-
-Style/WordArray:
-  EnforcedStyle: brackets

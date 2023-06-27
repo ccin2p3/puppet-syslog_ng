@@ -9,9 +9,6 @@ on:
     tags:
       - '*'
 
-env:
-  BUNDLE_WITHOUT: development:test:system_tests
-
 jobs:
   release:
     name: Release
