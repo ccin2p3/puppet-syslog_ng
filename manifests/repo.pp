@@ -17,7 +17,6 @@ class syslog_ng::repo {
           gpgkey   => 'https://copr-be.cloud.fedoraproject.org/results/czanik/syslog-ng-githead/pubkey.gpg',
           enabled  => '1',
           gpgcheck => '1',
-          target   => '',
           before   => Package[$syslog_ng::package_name],
         }
       }
