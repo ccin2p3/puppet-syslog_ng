@@ -19,7 +19,7 @@ $coloss_analyzers = ['coloss-analyzer-failover.example.com', 'coloss-analyzer.ex
             ],
           },
           { 'port'       => 514 },
-      $options])
+      ])
     }
   ],
 }
