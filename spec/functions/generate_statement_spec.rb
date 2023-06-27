@@ -145,7 +145,7 @@ describe 'syslog_ng::generate_statement' do
         {
           'type' => 'syslog',
           'options' => [
-            { 'flags' => ['no-multi-line', 'no-parse'] },
+            { 'flags' => %w[no-multi-line no-parse] },
             { 'ip' => ["'10.65.0.5'"] },
             { 'keep-alive' => ['yes'] },
             { 'keep_hostname' => ['yes'] },
