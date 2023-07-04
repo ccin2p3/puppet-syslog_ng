@@ -4,7 +4,34 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v3.0.0](https://github.com/ccin2p3/puppet-syslog_ng/tree/v3.0.0) (2022-03-02)
+## [v4.0.0](https://github.com/ccin2p3/puppet-syslog_ng/tree/v4.0.0) (2023-07-04)
+
+[Full Changelog](https://github.com/ccin2p3/puppet-syslog_ng/compare/v3.0.0...v4.0.0)
+
+**Breaking changes:**
+
+- Drop Debian 9 \(EOL\) [\#39](https://github.com/ccin2p3/puppet-syslog_ng/pull/39) ([smortex](https://github.com/smortex))
+- Drop Puppet 6 \(EOL\) [\#38](https://github.com/ccin2p3/puppet-syslog_ng/pull/38) ([smortex](https://github.com/smortex))
+- Drop support of RedHat 6 / Ubuntu 16.04 \(EOL\) [\#29](https://github.com/ccin2p3/puppet-syslog_ng/pull/29) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- Add support for Puppet 8 [\#40](https://github.com/ccin2p3/puppet-syslog_ng/pull/40) ([smortex](https://github.com/smortex))
+- Relax dependencies version requirements [\#37](https://github.com/ccin2p3/puppet-syslog_ng/pull/37) ([smortex](https://github.com/smortex))
+- Rework documentation [\#33](https://github.com/ccin2p3/puppet-syslog_ng/pull/33) ([smortex](https://github.com/smortex))
+- Add support for AlmaLinux [\#31](https://github.com/ccin2p3/puppet-syslog_ng/pull/31) ([smortex](https://github.com/smortex))
+- Add support for Rocky [\#30](https://github.com/ccin2p3/puppet-syslog_ng/pull/30) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Fix dependencies version bounds [\#34](https://github.com/ccin2p3/puppet-syslog_ng/pull/34) ([smortex](https://github.com/smortex))
+
+**Merged pull requests:**
+
+- Modernize functions [\#32](https://github.com/ccin2p3/puppet-syslog_ng/pull/32) ([smortex](https://github.com/smortex))
+- Fix acceptance tests of expected to fail tests [\#27](https://github.com/ccin2p3/puppet-syslog_ng/pull/27) ([smortex](https://github.com/smortex))
+
+## [v3.0.0](https://github.com/ccin2p3/puppet-syslog_ng/tree/v3.0.0) (2022-03-03)
 
 [Full Changelog](https://github.com/ccin2p3/puppet-syslog_ng/compare/v2.2.1...v3.0.0)
 
