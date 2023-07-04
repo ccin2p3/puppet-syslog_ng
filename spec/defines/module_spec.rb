@@ -13,7 +13,7 @@ describe 'syslog_ng::module', type: 'define' do
   end
   let :facts do
     default_facts.merge(
-      { osfamily: 'Debian', os: { family: 'Debian', name: 'Ubuntu', release: { full: '14.4', major: '14.4' } } },
+      { osfamily: 'Debian', os: { family: 'Debian', name: 'Ubuntu', release: { full: '14.4', major: '14.4' } } }
     )
   end
 
@@ -29,7 +29,7 @@ describe 'syslog_ng::module', type: 'define' do
   context 'When osfamily is RedHat' do
     let :facts do
       default_facts.merge(
-        { osfamily: 'RedHat', os: { family: 'RedHat', release: { major: '7' } } },
+        { osfamily: 'RedHat', os: { family: 'RedHat', release: { major: '7' } } }
       )
     end
     let :pre_condition do
@@ -54,7 +54,7 @@ describe 'syslog_ng::module', type: 'define' do
   context 'When osfamily is Suse' do
     let :facts do
       default_facts.merge(
-        { osfamily: 'Suse', os: { family: 'Suse' } },
+        { osfamily: 'Suse', os: { family: 'Suse' } }
       )
     end
     let :pre_condition do

@@ -113,7 +113,7 @@ describe 'syslog_ng' do
   context 'When asked to use additional module' do
     let(:params) do
       {
-        modules: ['foo', 'bar', 'baz']
+        modules: %w[foo bar baz]
       }
     end
 

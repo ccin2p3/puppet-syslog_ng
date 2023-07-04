@@ -27,7 +27,7 @@ describe Facter::Util::Fact do
         'Installer-Version' => '3.7.1',
         'Revision' => '',
         'Compile-Date' => 'Aug 17 2015 14:25:00',
-        'Available-Modules' => ['afamqp', 'basicfuncs', 'linux-kmsg-format', 'csvparser', 'system-source', 'sdjournal', 'afsmtp', 'afmongodb', 'mod-java', 'riemann', 'afsocket', 'cryptofuncs', 'trigger-source', 'afstomp', 'lua', 'confgen', 'rust', 'rss', 'afuser', 'affile', 'afsql', 'dbparser', 'tfgetent', 'geoip-plugin', 'graphite', 'pseudofile', 'mod-perl', 'kvformat', 'grok-parser', 'json-plugin', 'afprog', 'basicfuncs-plus', 'monitor-source', 'syslogformat', 'mod-python', 'date-parser'],
+        'Available-Modules' => %w[afamqp basicfuncs linux-kmsg-format csvparser system-source sdjournal afsmtp afmongodb mod-java riemann afsocket cryptofuncs trigger-source afstomp lua confgen rust rss afuser affile afsql dbparser tfgetent geoip-plugin graphite pseudofile mod-perl kvformat grok-parser json-plugin afprog basicfuncs-plus monitor-source syslogformat mod-python date-parser],
         'Enable-Debug' => 'off',
         'Enable-GProf' => 'off',
         'Enable-Memtrace' => 'off',

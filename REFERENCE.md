@@ -17,22 +17,22 @@
 
 ### Defined types
 
-* [`syslog_ng::config`](#syslog_ngconfig): Add raw configuration
-* [`syslog_ng::destination`](#syslog_ngdestination): Add a destination
-* [`syslog_ng::filter`](#syslog_ngfilter): Add a filter
-* [`syslog_ng::log`](#syslog_nglog): Add a log
-* [`syslog_ng::module`](#syslog_ngmodule): Install syslog-ng modules
-* [`syslog_ng::options`](#syslog_ngoptions): Add global options
-* [`syslog_ng::parser`](#syslog_ngparser): Add a parser
-* [`syslog_ng::rewrite`](#syslog_ngrewrite): Add a rewrite rule
-* [`syslog_ng::source`](#syslog_ngsource): Add a source
-* [`syslog_ng::template`](#syslog_ngtemplate): Add a template
+* [`syslog_ng::config`](#syslog_ng--config): Add raw configuration
+* [`syslog_ng::destination`](#syslog_ng--destination): Add a destination
+* [`syslog_ng::filter`](#syslog_ng--filter): Add a filter
+* [`syslog_ng::log`](#syslog_ng--log): Add a log
+* [`syslog_ng::module`](#syslog_ng--module): Install syslog-ng modules
+* [`syslog_ng::options`](#syslog_ng--options): Add global options
+* [`syslog_ng::parser`](#syslog_ng--parser): Add a parser
+* [`syslog_ng::rewrite`](#syslog_ng--rewrite): Add a rewrite rule
+* [`syslog_ng::source`](#syslog_ng--source): Add a source
+* [`syslog_ng::template`](#syslog_ng--template): Add a template
 
 ### Functions
 
-* [`syslog_ng::generate_log`](#syslog_nggenerate_log): Gererate log
-* [`syslog_ng::generate_options`](#syslog_nggenerate_options): Generate options
-* [`syslog_ng::generate_statement`](#syslog_nggenerate_statement): Generate statement
+* [`syslog_ng::generate_log`](#syslog_ng--generate_log): Gererate log
+* [`syslog_ng::generate_options`](#syslog_ng--generate_options): Generate options
+* [`syslog_ng::generate_statement`](#syslog_ng--generate_statement): Generate statement
 
 ## Classes
 
@@ -44,84 +44,84 @@ The main class of this module. By including it you get an installed syslog-ng wi
 
 The following parameters are available in the `syslog_ng` class:
 
-* [`config_file`](#config_file)
-* [`package_name`](#package_name)
-* [`service_name`](#service_name)
-* [`module_prefix`](#module_prefix)
-* [`config_file_header`](#config_file_header)
-* [`package_ensure`](#package_ensure)
-* [`manage_repo`](#manage_repo)
-* [`manage_package`](#manage_package)
-* [`manage_init_defaults`](#manage_init_defaults)
-* [`modules`](#modules)
-* [`sbin_path`](#sbin_path)
-* [`user`](#user)
-* [`group`](#group)
-* [`syntax_check_before_reloads`](#syntax_check_before_reloads)
-* [`init_config_file`](#init_config_file)
-* [`init_config_hash`](#init_config_hash)
+* [`config_file`](#-syslog_ng--config_file)
+* [`package_name`](#-syslog_ng--package_name)
+* [`service_name`](#-syslog_ng--service_name)
+* [`module_prefix`](#-syslog_ng--module_prefix)
+* [`config_file_header`](#-syslog_ng--config_file_header)
+* [`package_ensure`](#-syslog_ng--package_ensure)
+* [`manage_repo`](#-syslog_ng--manage_repo)
+* [`manage_package`](#-syslog_ng--manage_package)
+* [`manage_init_defaults`](#-syslog_ng--manage_init_defaults)
+* [`modules`](#-syslog_ng--modules)
+* [`sbin_path`](#-syslog_ng--sbin_path)
+* [`user`](#-syslog_ng--user)
+* [`group`](#-syslog_ng--group)
+* [`syntax_check_before_reloads`](#-syslog_ng--syntax_check_before_reloads)
+* [`init_config_file`](#-syslog_ng--init_config_file)
+* [`init_config_hash`](#-syslog_ng--init_config_hash)
 
-##### <a name="config_file"></a>`config_file`
+##### <a name="-syslog_ng--config_file"></a>`config_file`
 
 Data type: `Stdlib::Absolutepath`
 
 Configures the path of the configuration file.
 
-##### <a name="package_name"></a>`package_name`
+##### <a name="-syslog_ng--package_name"></a>`package_name`
 
 Data type: `String[1]`
 
 Name of the package to manage when `manage_package` is `true`.
 
-##### <a name="service_name"></a>`service_name`
+##### <a name="-syslog_ng--service_name"></a>`service_name`
 
 Data type: `String[1]`
 
 Name of the syslog-ng service.
 
-##### <a name="module_prefix"></a>`module_prefix`
+##### <a name="-syslog_ng--module_prefix"></a>`module_prefix`
 
 Data type: `String[1]`
 
 A string to prepend to syslog-ng module names to obtain the corresponding package names.
 
-##### <a name="config_file_header"></a>`config_file_header`
+##### <a name="-syslog_ng--config_file_header"></a>`config_file_header`
 
 Data type: `String[1]`
 
 A header string that appear on top of the syslog-ng configuration.
 
-##### <a name="package_ensure"></a>`package_ensure`
+##### <a name="-syslog_ng--package_ensure"></a>`package_ensure`
 
 Data type: `String[1]`
 
 The value of the `ensure` parameter of package resources.
 
-##### <a name="manage_repo"></a>`manage_repo`
+##### <a name="-syslog_ng--manage_repo"></a>`manage_repo`
 
 Data type: `Boolean`
 
 Controls if the module is managing the unofficial repositories of syslog-ng packages. Use true if you want to use the latest version of syslog-ng from the unofficial Debian repository or unofficial RedHat repository.
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="manage_package"></a>`manage_package`
+##### <a name="-syslog_ng--manage_package"></a>`manage_package`
 
 Data type: `Boolean`
 
 Controls if the module is managing the package resource or not. Use false if you are already handling this in your manifests.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="manage_init_defaults"></a>`manage_init_defaults`
+##### <a name="-syslog_ng--manage_init_defaults"></a>`manage_init_defaults`
 
 Data type: `Boolean`
 
 Controls if the module is managing the init script's config file (See init_config_file and init_config_hash).
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="modules"></a>`modules`
+##### <a name="-syslog_ng--modules"></a>`modules`
 
 Data type: `Array[String[1]]`
 
@@ -129,7 +129,7 @@ Configures additional syslog-ng modules. If `manage_package` is set to `true` th
 
 Default value: `[]`
 
-##### <a name="sbin_path"></a>`sbin_path`
+##### <a name="-syslog_ng--sbin_path"></a>`sbin_path`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -137,7 +137,7 @@ Configures the path, where `syslog-ng` and `syslog-ng-ctl` binaries can be found
 
 Default value: `'/usr/sbin'`
 
-##### <a name="user"></a>`user`
+##### <a name="-syslog_ng--user"></a>`user`
 
 Data type: `String[1]`
 
@@ -145,7 +145,7 @@ Configures `syslog-ng` to run as `user`.
 
 Default value: `'root'`
 
-##### <a name="group"></a>`group`
+##### <a name="-syslog_ng--group"></a>`group`
 
 Data type: `String[1]`
 
@@ -153,21 +153,21 @@ Configures `syslog-ng` to run as `group`.
 
 Default value: `'root'`
 
-##### <a name="syntax_check_before_reloads"></a>`syntax_check_before_reloads`
+##### <a name="-syslog_ng--syntax_check_before_reloads"></a>`syntax_check_before_reloads`
 
 Data type: `Boolean`
 
 The module always checks the syntax of the generated configuration. If it is not OK, the main configuration (usually /etc/syslog-ng/syslog-ng.conf) will not be overwritten, but you can disable this behavior by setting this parameter to false.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="init_config_file"></a>`init_config_file`
+##### <a name="-syslog_ng--init_config_file"></a>`init_config_file`
 
 Data type: `Stdlib::Absolutepath`
 
 Path to the init script configuration file.
 
-##### <a name="init_config_hash"></a>`init_config_hash`
+##### <a name="-syslog_ng--init_config_hash"></a>`init_config_hash`
 
 Data type: `Hash`
 
@@ -175,7 +175,7 @@ Hash of init configuration options to put into `init_config_file`. This has OS s
 
 ## Defined types
 
-### <a name="syslog_ngconfig"></a>`syslog_ng::config`
+### <a name="syslog_ng--config"></a>`syslog_ng::config`
 
 Some elements of the syslog-ng DSL are not supported by this module (mostly the boolean operators in filters) so you may want to keep some configuration snippets in their original form. This type lets you write texts into the configuration without any parsing or processing.
 
@@ -192,16 +192,16 @@ syslog_ng::config {'version':
 
 The following parameters are available in the `syslog_ng::config` defined type:
 
-* [`content`](#content)
-* [`order`](#order)
+* [`content`](#-syslog_ng--config--content)
+* [`order`](#-syslog_ng--config--order)
 
-##### <a name="content"></a>`content`
+##### <a name="-syslog_ng--config--content"></a>`content`
 
 Data type: `String[1]`
 
 Configures the text which must be written into the configuration file. A newline character is automatically appended to its end.
 
-##### <a name="order"></a>`order`
+##### <a name="-syslog_ng--config--order"></a>`order`
 
 Data type: `String[1]`
 
@@ -209,7 +209,7 @@ Sets the order of this snippet in the configuration file. If you want to write t
 
 Default value: `'5'`
 
-### <a name="syslog_ngdestination"></a>`syslog_ng::destination`
+### <a name="syslog_ng--destination"></a>`syslog_ng::destination`
 
 Creates a destination in your configuration.
 
@@ -229,9 +229,9 @@ syslog_ng::destination { 'd_udp':
 
 The following parameters are available in the `syslog_ng::destination` defined type:
 
-* [`params`](#params)
+* [`params`](#-syslog_ng--destination--params)
 
-##### <a name="params"></a>`params`
+##### <a name="-syslog_ng--destination--params"></a>`params`
 
 Data type: `Data`
 
@@ -239,7 +239,7 @@ An array of hashes or a single hash.
 
 Default value: `[]`
 
-### <a name="syslog_ngfilter"></a>`syslog_ng::filter`
+### <a name="syslog_ng--filter"></a>`syslog_ng::filter`
 
 Creates a filter in your configuration. **It does not support binary operators, such as `and` or `or`**. Please, use a `syslog_ng::config` if you need this functionality.
 
@@ -258,9 +258,9 @@ syslog_ng::filter { 'f_tag_filter':
 
 The following parameters are available in the `syslog_ng::filter` defined type:
 
-* [`params`](#params)
+* [`params`](#-syslog_ng--filter--params)
 
-##### <a name="params"></a>`params`
+##### <a name="-syslog_ng--filter--params"></a>`params`
 
 Data type: `Data`
 
@@ -268,7 +268,7 @@ An array of hashes or a single hash.
 
 Default value: `[]`
 
-### <a name="syslog_nglog"></a>`syslog_ng::log`
+### <a name="syslog_ng--log"></a>`syslog_ng::log`
 
 Creates log paths in your configuration. It can create channels, junctions and reference already defined sources, destinations, etc. The syntax is a little bit different then the one previously described under statements.
 
@@ -305,9 +305,9 @@ syslog_ng::log { 'l2':
 
 The following parameters are available in the `syslog_ng::log` defined type:
 
-* [`params`](#params)
+* [`params`](#-syslog_ng--log--params)
 
-##### <a name="params"></a>`params`
+##### <a name="-syslog_ng--log--params"></a>`params`
 
 Data type: `Data`
 
@@ -315,11 +315,11 @@ The syntax is a bit different, but you can find examples under the tests directo
 
 Default value: `[]`
 
-### <a name="syslog_ngmodule"></a>`syslog_ng::module`
+### <a name="syslog_ng--module"></a>`syslog_ng::module`
 
 Install syslog-ng modules
 
-### <a name="syslog_ngoptions"></a>`syslog_ng::options`
+### <a name="syslog_ng--options"></a>`syslog_ng::options`
 
 Creates a global options statement. Currently it is not a class, so you should not declare it multiple times! It is not defined as a class, so you can declare it as other similar types.
 
@@ -336,9 +336,9 @@ syslog_ng::options { "global_options":
 
 The following parameters are available in the `syslog_ng::options` defined type:
 
-* [`options`](#options)
+* [`options`](#-syslog_ng--options--options)
 
-##### <a name="options"></a>`options`
+##### <a name="-syslog_ng--options--options"></a>`options`
 
 Data type: `Hash`
 
@@ -346,7 +346,7 @@ A hash containing string keys and string values. In the generated configuration 
 
 Default value: `{}`
 
-### <a name="syslog_ngparser"></a>`syslog_ng::parser`
+### <a name="syslog_ng--parser"></a>`syslog_ng::parser`
 
 Creates a parser statement in your configuration.
 
@@ -373,9 +373,9 @@ syslog_ng::parser { 'p_hostname_segmentation':
 
 The following parameters are available in the `syslog_ng::parser` defined type:
 
-* [`params`](#params)
+* [`params`](#-syslog_ng--parser--params)
 
-##### <a name="params"></a>`params`
+##### <a name="-syslog_ng--parser--params"></a>`params`
 
 Data type: `Data`
 
@@ -383,7 +383,7 @@ An array of hashes or a single hash.
 
 Default value: `[]`
 
-### <a name="syslog_ngrewrite"></a>`syslog_ng::rewrite`
+### <a name="syslog_ng--rewrite"></a>`syslog_ng::rewrite`
 
 Creates one or more rewrite rules in your configuration.
 
@@ -405,9 +405,9 @@ syslog_ng::rewrite{ 'r_rewrite_subst':
 
 The following parameters are available in the `syslog_ng::rewrite` defined type:
 
-* [`params`](#params)
+* [`params`](#-syslog_ng--rewrite--params)
 
-##### <a name="params"></a>`params`
+##### <a name="-syslog_ng--rewrite--params"></a>`params`
 
 Data type: `Data`
 
@@ -415,7 +415,7 @@ An array of hashes or a single hash.
 
 Default value: `[]`
 
-### <a name="syslog_ngsource"></a>`syslog_ng::source`
+### <a name="syslog_ng--source"></a>`syslog_ng::source`
 
 Creates a source in your configuration.
 
@@ -464,9 +464,9 @@ syslog_ng::source { 's_external':
 
 The following parameters are available in the `syslog_ng::source` defined type:
 
-* [`params`](#params)
+* [`params`](#-syslog_ng--source--params)
 
-##### <a name="params"></a>`params`
+##### <a name="-syslog_ng--source--params"></a>`params`
 
 Data type: `Data`
 
@@ -474,7 +474,7 @@ An array of hashes or a single hash.
 
 Default value: `[]`
 
-### <a name="syslog_ngtemplate"></a>`syslog_ng::template`
+### <a name="syslog_ng--template"></a>`syslog_ng::template`
 
 Creates one or more templates in your configuration.
 
@@ -501,9 +501,9 @@ syslog_ng::template {'t_demo_filetemplate':
 
 The following parameters are available in the `syslog_ng::template` defined type:
 
-* [`params`](#params)
+* [`params`](#-syslog_ng--template--params)
 
-##### <a name="params"></a>`params`
+##### <a name="-syslog_ng--template--params"></a>`params`
 
 Data type: `Data`
 
@@ -513,7 +513,7 @@ Default value: `[]`
 
 ## Functions
 
-### <a name="syslog_nggenerate_log"></a>`syslog_ng::generate_log`
+### <a name="syslog_ng--generate_log"></a>`syslog_ng::generate_log`
 
 Type: Ruby 4.x API
 
@@ -531,7 +531,7 @@ Data type: `Data`
 
 
 
-### <a name="syslog_nggenerate_options"></a>`syslog_ng::generate_options`
+### <a name="syslog_ng--generate_options"></a>`syslog_ng::generate_options`
 
 Type: Ruby 4.x API
 
@@ -549,7 +549,7 @@ Data type: `Hash[String[1], Variant[Integer, String]]`
 
 
 
-### <a name="syslog_nggenerate_statement"></a>`syslog_ng::generate_statement`
+### <a name="syslog_ng--generate_statement"></a>`syslog_ng::generate_statement`
 
 Type: Ruby 4.x API
 
