@@ -42,7 +42,7 @@ class syslog_ng (
   String[1] $service_name,
   String[0] $module_prefix,
   String[1] $config_file_header,
-  String[1] $package_ensure,
+  String[1] $package_ensure = 'installed',
   Optional[Stdlib::Absolutepath] $init_config_file = undef,
   Hash $init_config_hash                           = {},
   Boolean $manage_init_defaults        = false,
