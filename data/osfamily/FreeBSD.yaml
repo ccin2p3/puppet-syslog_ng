@@ -1,4 +1,5 @@
 ---
 syslog_ng::config_file: /usr/local/etc/syslog-ng.conf
+syslog_ng::group: wheel
 syslog_ng::package_name: syslog-ng
 syslog_ng::module_prefix: ''
