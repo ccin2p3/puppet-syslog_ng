@@ -29,9 +29,9 @@ class syslog_ng::repo {
           repos    => "${fact('os.name')}-${fact('os.distro.codename')}".downcase,
           release  => 'stable',
           key      => {
-            ensure => 'refreshed',
-            id     => '2E6994033390DE82D8E6A2D16E187A4C6694369F',
-            source => "${release_url}syslog-ng-ose-pub.asc",
+            name    => 'syslog-ng.asc',
+            # https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc
+            content => file("${module_name}/syslog-ng-ose-pub.asc"),
           },
           include  => {
             deb => true,
