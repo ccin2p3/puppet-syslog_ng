@@ -91,7 +91,7 @@ class syslog_ng (
     file { $init_config_file:
       ensure  => file,
       content => template('syslog_ng/init_config_file.erb'),
-      notify  => Exec['syslog_ng_reload'],
+      notify  => Service[$service_name],
     }
   }
 
