@@ -23,7 +23,7 @@ describe 'syslog_ng::module', type: 'define' do
     end
 
     it { is_expected.to compile }
-    it { is_expected.to contain_package('MODPREFIX_foo').with_ensure('present') }
+    it { is_expected.to contain_package('MODPREFIX_foo').with_ensure('installed') }
   end
 
   context 'When osfamily is RedHat' do
@@ -37,7 +37,7 @@ describe 'syslog_ng::module', type: 'define' do
     end
 
     it { is_expected.to compile }
-    it { is_expected.to contain_package('syslog-ng-foo').with_ensure('present') }
+    it { is_expected.to contain_package('syslog-ng-foo').with_ensure('installed') }
   end
 
   context 'When osfamily is Debian' do
@@ -47,7 +47,7 @@ describe 'syslog_ng::module', type: 'define' do
       end
 
       it { is_expected.to compile }
-      it { is_expected.to contain_package('syslog-ng-mod-foo').with_ensure('present') }
+      it { is_expected.to contain_package('syslog-ng-mod-foo').with_ensure('installed') }
     end
   end
 
@@ -62,6 +62,6 @@ describe 'syslog_ng::module', type: 'define' do
     end
 
     it { is_expected.to compile }
-    it { is_expected.to contain_package('syslog-ng-foo').with_ensure('present') }
+    it { is_expected.to contain_package('syslog-ng-foo').with_ensure('installed') }
   end
 end

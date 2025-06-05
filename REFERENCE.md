@@ -81,7 +81,7 @@ Name of the syslog-ng service.
 
 ##### <a name="-syslog_ng--module_prefix"></a>`module_prefix`
 
-Data type: `String[1]`
+Data type: `String[0]`
 
 A string to prepend to syslog-ng module names to obtain the corresponding package names.
 
@@ -96,6 +96,8 @@ A header string that appear on top of the syslog-ng configuration.
 Data type: `String[1]`
 
 The value of the `ensure` parameter of package resources.
+
+Default value: `'installed'`
 
 ##### <a name="-syslog_ng--manage_repo"></a>`manage_repo`
 
@@ -135,8 +137,6 @@ Data type: `Stdlib::Absolutepath`
 
 Configures the path, where `syslog-ng` and `syslog-ng-ctl` binaries can be found.
 
-Default value: `'/usr/sbin'`
-
 ##### <a name="-syslog_ng--user"></a>`user`
 
 Data type: `String[1]`
@@ -163,15 +163,19 @@ Default value: `true`
 
 ##### <a name="-syslog_ng--init_config_file"></a>`init_config_file`
 
-Data type: `Stdlib::Absolutepath`
+Data type: `Optional[Stdlib::Absolutepath]`
 
 Path to the init script configuration file.
+
+Default value: `undef`
 
 ##### <a name="-syslog_ng--init_config_hash"></a>`init_config_hash`
 
 Data type: `Hash`
 
 Hash of init configuration options to put into `init_config_file`. This has OS specific defaults which will be merged to user specified value.
+
+Default value: `{}`
 
 ## Defined types
 
