@@ -87,7 +87,6 @@ class syslog_ng (
   }
 
   if $manage_init_defaults {
-    $merged_init_config_hash = merge($init_config_hash,$init_config_hash)
     file { $init_config_file:
       ensure  => file,
       content => template('syslog_ng/init_config_file.erb'),
