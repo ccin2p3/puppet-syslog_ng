@@ -11,6 +11,6 @@
 # Command line options to syslog-ng
 #SYSLOGNG_OPTS="--no-caps"
 #SYSLOGNG_OPTS="-f /usr/local/etc/syslog-ng.conf"
-<% @init_config_hash.sort.map do |k,v| -%>
-<%=k%>=<%=v%>
-<% end -%>
+<% $syslog_ng::init_config_hash.each |$k, $v| { -%>
+<%= $k %>=<%= $v %>
+<% } -%>

@@ -89,7 +89,7 @@ class syslog_ng (
   if $manage_init_defaults {
     file { $init_config_file:
       ensure  => file,
-      content => template('syslog_ng/init_config_file.erb'),
+      content => epp('syslog_ng/init_config_file.epp'),
       notify  => Service[$service_name],
     }
   }
