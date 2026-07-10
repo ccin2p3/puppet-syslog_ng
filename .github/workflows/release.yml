@@ -4,15 +4,21 @@
 
 name: Release
 
+# yamllint disable-line rule:truthy
 on:
   push:
     tags:
-      - '*'
+      # https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpushbranchestagsbranches-ignoretags-ignore
+      # https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#filter-pattern-cheat-sheet
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
 
 jobs:
   release:
     name: Release
-    uses: voxpupuli/gha-puppet/.github/workflows/release.yml@v1
+    uses: voxpupuli/gha-puppet/.github/workflows/release.yml@b3f32179c62bfa8b50e2fe7a9911c07f7dc86eca # 2.0.0
     with:
       allowed_owner: 'ccin2p3'
     secrets:
