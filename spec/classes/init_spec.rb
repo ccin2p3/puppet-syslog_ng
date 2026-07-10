@@ -7,7 +7,7 @@ describe 'syslog_ng' do
     { concat_basedir: '/dne',
       osfamily: 'Debian',
       os: { family: 'Debian', name: 'Ubuntu', release: { full: '14.04', major: '14.04' }, distro: { codename: 'trusty' } },
-      operatingsystem: 'Ubuntu' }
+      operatingsystem: 'Ubuntu', }
   end
 
   context 'With not default params' do
@@ -15,7 +15,7 @@ describe 'syslog_ng' do
       {
         config_file: '/tmp/puppet-test/syslog-ng.conf',
         sbin_path: '/home/tibi/install/syslog-ng',
-        manage_init_defaults: true
+        manage_init_defaults: true,
       }
     end
 
@@ -45,13 +45,13 @@ describe 'syslog_ng' do
       { concat_basedir: '/dne',
         osfamily: 'RedHat',
         os: { family: 'RedHat', name: 'RedHat', release: { major: '7' } },
-        operatingsystem: 'RedHat' }
+        operatingsystem: 'RedHat', }
     end
 
     context 'with init_defaults set to true' do
       let(:params) do
         {
-          manage_init_defaults: true
+          manage_init_defaults: true,
         }
       end
 
@@ -80,14 +80,14 @@ describe 'syslog_ng' do
   context 'On SLES with init_defaults set to true' do
     let(:params) do
       {
-        manage_init_defaults: true
+        manage_init_defaults: true,
       }
     end
     let(:facts) do
       { concat_basedir: '/dne',
         osfamily: 'Suse',
         os: { family: 'Suse' },
-        operatingsystem: 'SLES' }
+        operatingsystem: 'SLES', }
     end
 
     it {
@@ -103,7 +103,7 @@ describe 'syslog_ng' do
   context 'When asked not to manage package' do
     let(:params) do
       {
-        manage_package: false
+        manage_package: false,
       }
     end
 
@@ -113,7 +113,7 @@ describe 'syslog_ng' do
   context 'When asked to use additional module' do
     let(:params) do
       {
-        modules: %w[foo bar baz]
+        modules: ['foo', 'bar', 'baz'],
       }
     end
 
@@ -132,7 +132,7 @@ describe 'syslog_ng' do
     context 'and asked to check syntax before reload' do
       let(:params) do
         {
-          syntax_check_before_reloads: true
+          syntax_check_before_reloads: true,
         }
       end
 
@@ -144,7 +144,7 @@ describe 'syslog_ng' do
     context 'and asked not to check syntax before reload' do
       let(:params) do
         {
-          syntax_check_before_reloads: false
+          syntax_check_before_reloads: false,
         }
       end
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
+# rubocop:disable Naming/AccessorMethodName, Style/ClassVars
 module Statement
   # source s_name { .. };
   class Stment
@@ -302,7 +302,7 @@ module Statement
     render_configuration
   end
 end
-# rubocop:enable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
+# rubocop:enable Naming/AccessorMethodName, Style/ClassVars
 
 # Generate statement
 Puppet::Functions.create_function(:'syslog_ng::generate_statement') do

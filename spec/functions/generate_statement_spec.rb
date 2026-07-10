@@ -29,8 +29,8 @@ describe 'syslog_ng::generate_statement' do
           "'string'",
           "'replacement'",
           { 'value' => 'field' },
-          { 'flags' => '' }
-        ]
+          { 'flags' => '' },
+        ],
       }
     end
 
@@ -50,8 +50,8 @@ describe 'syslog_ng::generate_statement' do
           "'string'",
           "'replacement'",
           { 'value' => 'field' },
-          { 'flags' => '' }
-        ]
+          { 'flags' => '' },
+        ],
       }
     end
 
@@ -72,8 +72,8 @@ describe 'syslog_ng::generate_statement' do
           "'string'",
           "'replacement'",
           { 'value' => 'field' },
-          { 'flags' => 'ignore-case, store-matches' }
-        ]
+          { 'flags' => 'ignore-case, store-matches' },
+        ],
       }
     end
     let(:param2_expected) do
@@ -110,8 +110,8 @@ describe 'syslog_ng::generate_statement' do
           "'string'",
           "'replacement'",
           { 'value' => ['field'] },
-          { 'flags' => [] }
-        ]
+          { 'flags' => [] },
+        ],
       }
     end
 
@@ -134,24 +134,24 @@ describe 'syslog_ng::generate_statement' do
             { 'tls' => [
               { 'key_file' => ['"/opt/syslog-ng/etc/syslog-ng/key.d/syslog-ng.key"'] },
               { 'cert_file' => '"/opt/syslog-ng/etc/syslog-ng/cert.d/syslog-ng.cert"' },
-              { 'peer_verify' => 'optional-untrusted' }
-            ] }
-          ] },
+              { 'peer_verify' => 'optional-untrusted' },
+            ] },
+          ], },
         { 'type' => 'tcp',
           'options' => [
             { 'ip' => ["'192.168.42.2'"] },
-            { 'port' => [514] }
-          ] },
+            { 'port' => [514] },
+          ], },
         {
           'type' => 'syslog',
           'options' => [
-            { 'flags' => %w[no-multi-line no-parse] },
+            { 'flags' => ['no-multi-line', 'no-parse'] },
             { 'ip' => ["'10.65.0.5'"] },
             { 'keep-alive' => ['yes'] },
             { 'keep_hostname' => ['yes'] },
-            { 'transport' => ['udp'] }
-          ]
-        }
+            { 'transport' => ['udp'] },
+          ],
+        },
       ]
     end
     let(:expected) do

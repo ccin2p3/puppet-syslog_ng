@@ -8,7 +8,7 @@ describe 'syslog_ng::generate_log' do
     let(:options) do
       [
         { 'source' => 's_gsoc2014' },
-        { 'destination' => 'd_gsoc' }
+        { 'destination' => 'd_gsoc' },
       ]
     end
     let(:expected) do
@@ -34,17 +34,17 @@ describe 'syslog_ng::generate_log' do
           {
             'channel' => [
               { 'filter' => 'f_json' },
-              { 'parser' => 'p_json' }
-            ]
+              { 'parser' => 'p_json' },
+            ],
           },
           {
             'channel' => [
               { 'filter' => 'f_not_json' },
-              { 'flags' => 'final' }
-            ]
-          }
+              { 'flags' => 'final' },
+            ],
+          },
         ] },
-        { 'destination' => 'd_gsoc' }
+        { 'destination' => 'd_gsoc' },
       ]
     end
     let(:expected) do
