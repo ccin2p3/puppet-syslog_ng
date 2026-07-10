@@ -172,7 +172,7 @@ module Statement
   end
 
   def self.decrease_indent
-    @@indent = @@indent[4..-1]
+    @@indent = @@indent[4..]
   end
 
   def self.get_indent
