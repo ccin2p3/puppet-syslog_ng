@@ -20,7 +20,7 @@ syslog_ng::parser { 'p_hostname_segmentation':
       { 'delimiters' => '"-"' },
       { 'flags' => 'escape-none' },
 #lint:ignore:single_quote_string_with_variables
-      { 'template' => '"${HOST}"' }
+      { 'template' => '"${HOST}"' },
 #lint:endignore
     ],
   },

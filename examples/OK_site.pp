@@ -34,13 +34,13 @@ syslog_ng::source { 's_external':
     { 'type'    => 'udp',
       'options' => [
         { 'ip' => ["'127.0.0.1'"] },
-        { 'port' => [514] }
+        { 'port' => [514] },
       ]
     },
     { 'type'    => 'tcp',
       'options' => [
         { 'ip' => ["'127.0.0.1'"] },
-        { 'port' => [514] }
+        { 'port' => [514] },
       ]
     },
     {
@@ -50,9 +50,9 @@ syslog_ng::source { 's_external':
         { 'ip' => ["'127.0.0.1'"] },
         { 'keep-alive' => ['yes'] },
         { 'keep_hostname' => ['yes'] },
-        { 'transport' => ['udp'] }
+        { 'transport' => ['udp'] },
       ]
-    }
+    },
   ],
 }
 

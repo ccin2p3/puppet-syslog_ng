@@ -26,6 +26,6 @@ syslog_ng::log { 'l2':
         },
       ],
     },
-    { 'destination' => 'd_gsoc' }
+    { 'destination' => 'd_gsoc' },
   ],
 }

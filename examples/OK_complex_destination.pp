@@ -12,14 +12,14 @@ $coloss_analyzers = ['coloss-analyzer-failover.example.com', 'coloss-analyzer.ex
 ::syslog_ng::destination { 'd_coloss':
   params => [
     { 'syslog-ng' => flatten([
-          { 'server'     => "'${coloss_analyzer}'" },
-          { 'failover'   => [
-              { 'servers'  => $coloss_analyzers.map |$server| { "\"${server}\"" } },
-              { 'failback' => ['successful-probes-required(3)', 'tcp-probe-interval(5)'] },
-            ],
-          },
-          { 'port'       => 514 },
+        { 'server'     => "'${coloss_analyzer}'" },
+        { 'failover'   => [
+            { 'servers'  => $coloss_analyzers.map |$server| { "\"${server}\"" } },
+            { 'failback' => ['successful-probes-required(3)', 'tcp-probe-interval(5)'] },
+          ],
+        },
+        { 'port'       => 514 },
       ])
-    }
+    },
   ],
 }
