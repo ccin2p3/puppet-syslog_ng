@@ -35,15 +35,13 @@ describe 'syslog_ng class' do
     end
   end
 
-  Dir[File.join(__dir__, '..', '..', 'examples', 'OK_*.pp')].each do |f|
-    example = File.basename(f)
+  Dir[File.join(__dir__, '..', '..', 'examples', 'OK_*.pp')].map { |f| File.basename(f) }.each do |example|
     context "Example #{example}" do
       it_behaves_like 'the example', example
     end
   end
 
-  Dir[File.join(__dir__, '..', '..', 'examples', 'NOK_*.pp')].each do |f|
-    example = File.basename(f)
+  Dir[File.join(__dir__, '..', '..', 'examples', 'NOK_*.pp')].map { |f| [File.basename(f), f] }.each do |example, f|
     context "Example #{example}" do
       it 'applies with errors' do
         apply_manifest(File.read(f), expect_failures: true)
