@@ -5,7 +5,7 @@ shared_examples_for 'Statement' do |id, type|
     { concat_basedir: '/dne',
       osfamily: 'Debian',
       os: { family: 'Debian', name: 'Ubuntu', release: { full: '14.04', major: '14.04' } },
-      operatingsystem: 'Ubuntu' }
+      operatingsystem: 'Ubuntu', }
   end
 
   let(:pre_condition) { 'include syslog_ng' }

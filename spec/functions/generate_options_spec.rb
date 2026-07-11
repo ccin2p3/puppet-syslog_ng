@@ -6,7 +6,7 @@ describe 'syslog_ng::generate_options' do
   context 'With options' do
     let(:params) do
       { 'log_fifo_size' => 2048,
-        'create_dirs' => 'yes' }
+        'create_dirs' => 'yes', }
     end
     let(:expected) do
       <<~EOT

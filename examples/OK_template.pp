@@ -20,6 +20,6 @@ syslog_ng::template { 't_demo_filetemplate':
       'options' => [
         'no',
       ]
-    }
+    },
   ],
 }

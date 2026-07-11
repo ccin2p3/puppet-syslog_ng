@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
+# rubocop:disable Naming/AccessorMethodName, Style/ClassVars
 module Statement
   # source s_name { .. };
   class Stment
@@ -172,7 +172,7 @@ module Statement
   end
 
   def self.decrease_indent
-    @@indent = @@indent[4..-1]
+    @@indent = @@indent[4..]
   end
 
   def self.get_indent
@@ -199,7 +199,7 @@ module Statement
     # key_file => ...
     @@current_parameter_value.type = type
 
-    if is_simple_type?(value)
+    if simple_type?(value)
       a = Argument.new(value)
       @@current_parameter_value.add_argument(a)
     elsif value.is_a? Array
@@ -211,7 +211,7 @@ module Statement
     end
   end
 
-  def self.is_simple_type?(value)
+  def self.simple_type?(value)
     [String, Numeric].any? { |item| value.is_a? item }
   end
 
@@ -221,14 +221,14 @@ module Statement
     @@current_parameter.type = type
 
     ## flags => 'no-parse'
-    if is_simple_type?(value) && value != ''
+    if simple_type?(value) && value != ''
       @@current_parameter_value = TypedParameterSimpleValue.new(value)
       @@current_parameter.add_value(@@current_parameter_value)
     # flags => ['something', 'no-parse']
     elsif value.is_a? Array
       value.each do |value_item|
         # 'no-parse'
-        if is_simple_type?(value_item)
+        if simple_type?(value_item)
           @@current_parameter_value = TypedParameterSimpleValue.new(value_item)
           @@current_parameter.add_value(@@current_parameter_value)
           # { ... }
@@ -243,7 +243,7 @@ module Statement
 
   def self.create_and_add_parameters(params)
     params.each do |item|
-      if is_simple_type?(item)
+      if simple_type?(item)
         @@current_parameter = SimpleParameter.new(item)
       elsif item.is_a? Hash
         @@current_parameter = TypedParameter.new
@@ -302,7 +302,7 @@ module Statement
     render_configuration
   end
 end
-# rubocop:enable Naming/AccessorMethodName, Style/ClassVars, Naming/PredicateName
+# rubocop:enable Naming/AccessorMethodName, Style/ClassVars
 
 # Generate statement
 Puppet::Functions.create_function(:'syslog_ng::generate_statement') do
